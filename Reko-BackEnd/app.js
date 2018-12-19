@@ -16,7 +16,7 @@ const MongoStore   = require('connect-mongo')(session)
 mongoose
   .connect('mongodb://localhost/Reko', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}", a ver que pedo`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -33,8 +33,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Express View engine setup
 
+app.use(cors());
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// Express View engine setup
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
@@ -53,10 +58,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-//puse la de auth pero no se
+
 const index = require('./routes/index');
-const auth = require('./routes/auth/auth')
-app.use('/auth', auth)
+const categories = require('./routes/crud/categories');
+const clubs = require('./routes/crud/clubs');
+const rekos = require('./routes/crud/rekos');
+const auth = require('./routes/auth/auth');
+app.use('/auth', auth);
+app.use('/', categories);
+app.use('/', clubs);
+app.use('/', rekos);
 app.use('/', index);
 
 
