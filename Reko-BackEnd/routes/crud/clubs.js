@@ -27,7 +27,7 @@ router.post('/clubs', (req, res, next)=>{
 
 // read all clubs
 
-router.get('/rekos', (req, res, next)=>{
+router.get('/clubs', (req, res, next)=>{
   Club.find()
   .then(response=> {
     res.json(response);
@@ -37,7 +37,7 @@ router.get('/rekos', (req, res, next)=>{
 
 // get one club
 
-router.get('/rekos', (req, res, next)=>{
+router.get('/clubs', (req, res, next)=>{
   Club.findById(req.params.id)
   .then(response=> {
     res.json(response);
@@ -47,7 +47,7 @@ router.get('/rekos', (req, res, next)=>{
 
 // update a Club -- put o patch??
 
-router.put('/rekos/:id', (req, res, next)=>{
+router.put('/clubs/:id', (req, res, next)=>{
   Club.findByIdAndUpdate(req.params.id)
   .then(response=>{
     res.json(response ,{message: 'Club updated successfully'})
@@ -57,7 +57,7 @@ router.put('/rekos/:id', (req, res, next)=>{
 
 // delete a Club
 
-router.delete('/rekos/:id', (req, res , next)=>{
+router.delete('/clubs/:id', (req, res , next)=>{
   Club.findByIdAndRemove(req.params.id)
   .then(response=>{
     res.json({message:'Club removed successfully'})

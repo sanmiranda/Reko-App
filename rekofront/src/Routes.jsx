@@ -4,6 +4,7 @@ import Home from './components/home/Home';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import Profile from './components/auth/Profile';
+import RekoList from './components/rekos/RekoList';
 
 
 function Routes() {
@@ -13,6 +14,7 @@ function Routes() {
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={Signup}/>
       <Route path="/profile" component={Profile}/>
+      <Route path="/rekos" component={RekoList}/>
     </Switch>
   )
 }
