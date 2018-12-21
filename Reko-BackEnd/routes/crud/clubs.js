@@ -28,7 +28,7 @@ router.post('/clubs', (req, res, next)=>{
 // read all clubs
 
 router.get('/clubs', (req, res, next)=>{
-  Club.find()
+  Club.find().populate("members").populate("category")
   .then(response=> {
     res.json(response);
   })

@@ -31,19 +31,18 @@ class RekoList extends Component {
             return(
               <div key={reko._id}>
                 <Link to={`/rekos/${reko._id}`}/>
-                <img src={reko.img}></img>
-                <h3>{reko.category}</h3>
-                <h4>{reko.description}</h4>
-                <h3>{reko.author}</h3>
-                <h2>{reko.rating}</h2>
+                <img src={reko.img} alt='reko'></img>
+                <h3>Categoria : {reko.category.name}</h3>
+                <h3>Descripción : {reko.description}</h3>
+                {/* <h3>Author : {reko.author.email}</h3> */}
+                <h3>Rating : {reko.rating}</h3>
               </div>  
             )
 
           })}
 
       </div>
-        <div style={{width: "50%", float: "right"}}><AddReko //hijo de RekoList 
-        getData={()=> this.getRekos}/></div>
+     
     </div>
     )
   }

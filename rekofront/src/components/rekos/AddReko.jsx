@@ -47,6 +47,7 @@ class AddReko extends Component {
           <input name='description' value={this.state.description} type='text' placeholder='descripción' onChange={this.handleChange}/>
           <input name='rating' value={this.state.rating} type='text' placeholder= 'rating' onChange={this.handleChange}/>
           <input name='author' value={this.state.author} type='text' placeholder= 'author' onChange={this.handleChange}/>
+          <input type='submit'/>
         </form>  
       </div>
     )

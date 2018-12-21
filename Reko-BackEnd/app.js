@@ -33,6 +33,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+//sessions
+app.use(session({
+  store: new MongoStore({
+    mongooseConnection:mongoose.connection,
+    ttl:24*60*60
+  }),
+  secret:'santiago',
+  resave:true,
+  saveUninitialized:true,
+  cookie:{httpOnly:true,maxAge:60000}  
+}))
+
 
 app.use(cors());
 app.use(passport.initialize());

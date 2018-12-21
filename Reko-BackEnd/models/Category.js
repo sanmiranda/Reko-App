@@ -6,8 +6,9 @@ name: {
   type: String,
   required: true
 },
-nameRekosInCat: Number,
-subCategory:[String],
+numberRekosInCat: Number,
+rekos: [String],
+subCategory:String,
 numberSubCategories: Number,
 },{
   timestamps:{

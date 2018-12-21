@@ -20,10 +20,7 @@ const rekoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  // clubs:[{
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Club'
-  // }],
+ // monito de reko 3 puntos, 1 punto o 0 puntos
   // AddedToBucketlist: Number, como agregarlo? referencia de el id que se añada a bucketlist?
 },{
     timestamps:{

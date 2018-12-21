@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'bulma'
+import 'antd'
 import { BrowserRouter } from 'react-router-dom'
 
 const WithRouter = () => <BrowserRouter><App/></BrowserRouter>

@@ -7,6 +7,10 @@ const router = express.Router();
 router.post('/categories', (req, res, next)=>{
   Category.create({
     name: req.body.name,
+    numberRekosInCat: req.body.numberRekosInCat,
+    rekos: req.body.rekos,
+    subCategory: req.body.subCategory,
+    numberSubCategories: req.body.numberSubCategories
   })
 .then(response=>{
   res.json(response)
