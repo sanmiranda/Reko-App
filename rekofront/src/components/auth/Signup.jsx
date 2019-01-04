@@ -9,6 +9,7 @@ export default class Signup extends Component {
     signup = (e) => {
         const { user } = this.state
         e.preventDefault()
+        console.log(user)
         signup(user)
         .then(r => {
             console.log(r);
@@ -39,6 +40,12 @@ export default class Signup extends Component {
         <label className="label">Last Name</label>
         <div className="control">
             <input onChange={handleText} name="lastname" className="input" type="text" placeholder="write Last Name here"/>
+        </div>
+        </div>
+        <div className="field">
+        <label className="label">Username</label>
+        <div className="control">
+            <input onChange={handleText} name="username" className="input" type="text" placeholder="write a Username here"/>
         </div>
         </div>
         <div className="field">

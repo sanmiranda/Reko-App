@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'antd'
+import 'antd/dist/antd.css'
 import { BrowserRouter } from 'react-router-dom'
 
 const WithRouter = () => <BrowserRouter><App/></BrowserRouter>

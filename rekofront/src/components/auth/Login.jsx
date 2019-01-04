@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import {login} from '../../services/auth'
 
-export default class Login extends Component {
+class Login extends Component {
     state={
         user: {}
     }
@@ -19,9 +19,19 @@ export default class Login extends Component {
         e.preventDefault()
         login(user)
         .then(r => {
-            localStorage.setItem('loggedUser', JSON.stringify(r))
-            this.props.history.push('/profile')
             console.log(r)
+            if(r.status === 500 || r.status === 404 )
+            {
+                console.log('Revisar Contraseña')
+                alert('Contraseña Incorrecta')
+                
+            }
+            else{
+                localStorage.setItem('loggedUser', JSON.stringify(r))
+                this.props.history.push('/profile')
+            }
+          
+         
         })
         .catch(e => console.log(e))
     }
@@ -35,14 +45,14 @@ export default class Login extends Component {
       <div className="field">
       <label className="label">Email</label>
       <div className="control has-icons-left has-icons-right">
-          <input onChange={handleText} className="input" name="email" type="email" placeholder="darthVader@gmail.com"/>
+          <input onChange={e=> handleText(e)} className="input" name="email" type="email" placeholder="darthVader@gmail.com"/>
       </div>
       </div>
 
       <div className="field">
       <label className="label">Password</label>
       <div className="control has-icons-left has-icons-right">
-          <input onChange={handleText} className="input" name="password" type="password"/>
+          <input onChange={e=> handleText(e)} className="input" name="password" type="password"/>
       </div>
       </div>
 
@@ -58,3 +68,4 @@ export default class Login extends Component {
   )
 }
 }
+export default Login

@@ -10,6 +10,7 @@ import ClubList from './components/clubs/ClubList';
 import AddCategory from './components/categories/AddCategory';
 import AddClub from './components/clubs/AddClub';
 import AddReko from './components/rekos/AddReko';
+import Logout from './components/auth/Logout';
 
 
 function Routes() {
@@ -25,6 +26,7 @@ function Routes() {
       <Route path="/addcategories" component={AddCategory}/>
       <Route path="/addclubs" component={AddClub}/>
       <Route path="/addrekos" component={AddReko}/>
+      <Route path="/logout" component={Logout}/>
     </Switch>
   )
 }

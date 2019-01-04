@@ -7,15 +7,19 @@ const rekoSchema = new Schema({
     type: String,
     required: true
   },
+  name: {
+    type: String,
+    required: true
+  },
   category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category'
+    type: String,
+    enum:['Libros', 'Series', 'Restaurantes', 'Peliculas']
   },
   description: {
     type: String,
     required: true
   },
-  rating : Number,
+  rating : [],
   author : {
     type: Schema.Types.ObjectId,
     ref: 'User'

@@ -3,6 +3,7 @@ const host = 'http://localhost:3000/auth'
 
 //signup
 export const signup = (user) => {
+    console.log(user)
     return axios.post(host + "/signup", user, {})
     .then(r => r.data)
     .catch(e => e.response)

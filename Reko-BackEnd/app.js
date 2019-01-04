@@ -16,7 +16,7 @@ const MongoStore   = require('connect-mongo')(session)
 mongoose
   .connect('mongodb://localhost/Reko', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}", a ver que pedo`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -46,7 +46,10 @@ app.use(session({
 }))
 
 
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3001']
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -37,7 +37,7 @@ router.get('/clubs', (req, res, next)=>{
 
 // get one club
 
-router.get('/clubs', (req, res, next)=>{
+router.get('/clubs/:id', (req, res, next)=>{
   Club.findById(req.params.id)
   .then(response=> {
     res.json(response);

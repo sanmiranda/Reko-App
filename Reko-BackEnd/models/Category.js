@@ -7,7 +7,6 @@ name: {
   required: true
 },
 numberRekosInCat: Number,
-rekos: [String],
 subCategory:String,
 numberSubCategories: Number,
 },{

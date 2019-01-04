@@ -3,40 +3,42 @@ import {Link} from 'react-router-dom'
 import {
   Skeleton, Switch, Card, Icon, Avatar,
 } from 'antd';
+import axios from 'axios'
 
 
 
 
 
-// const displayAvartar = (user) => {
-//   if(user.avatarUrl){
-//     return <img src={user.avatarUrl} />
-//   } else {
-//     return <img src='../../../public/images/Reko-mini.png' width='300' height='300'/>
-//   }
-// }
+
+
+const displayAvartar = (user) => {
+  if(user.avatarUrl){
+    return <img src={user.avatarUrl} alt='mini' />
+  } else {
+    return <img src='../../../public/images/Reko-mini.png' alt='mini' width='300' height='300'/>
+  }
+}
+
 const { Meta } = Card;
 
 class Profile extends React.Component {
-  state = {
-    loading: true,
-  }
 
-  onChange = (checked) => {
-    this.setState({ loading: !checked });
+  state={
+    user: {}
   }
+ 
 
   render() {
-    const { loading } = this.state;
+
 
     return (
       <div>
-        <Switch checked={!loading} onChange={this.onChange} />
-
-        <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
+          {/* <img src= "../../../public/images/Reko-mini.png" alt='reko'></img>
+        <Card style={{ width: 300, marginTop: 16 }} >
           <Meta
-            avatar={<Avatar src="../../../public/images/Reko-mini.png" />}
-            title="Card title"
+            
+         
+
             description="This is the description"
           />
         </Card>
@@ -45,17 +47,29 @@ class Profile extends React.Component {
           style={{ width: 300, marginTop: 16 }}
           actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
         >
-          <Skeleton loading={loading} avatar active>
+          <Skeleton avatar active>
             <Meta
-              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+              avatar={<Avatar src="../../../public/images/Reko-mini.png" />}
               title="Card title"
               description="This is the description"
             />
           </Skeleton>
-        </Card>
+        </Card> */}
+         <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+  >
+    <Meta
+      title="Europe Street beat"
+      description="www.instagram.com"
+    />
+  </Card>
       </div>
     );
   }
 }
+
+
 
 export default Profile

@@ -9,32 +9,28 @@ const router = express.Router();
 //create new Reko
 
 router.post('/rekos', (req, res, next)=>{
-  Reko.create({
-    img: req.body.img, 
-    description: req.body.description, 
-    category: req.body.category,
-    rating: req.body.rating,
-    author: req.body.author,
-  })
+  console.log(req.body)
+  Reko.create(req.body)
   .then(response=>{
+    console.log(response)
     User.findByIdAndUpdate(req.params.id,
       {$push: {rekos: response._id}})
       .then(res.json(response))
       .catch(e=>res.json(e))
   })
-  .then(response=>{
-    Category.findByIdAndUpdate(req.params.id,
-      {$push: {rekos: response._id}})
-      .then(res.json(response))
-      .catch(e=>res.json(e))
-  })
-  .catch(e=> res.json(e))
+  // .then(response=>{
+  //   Category.findByIdAndUpdate(req.params.id,
+  //     {$push: {rekos: response._id}})
+  //     .then(res.json(response))
+  //     .catch(e=>res.json(e))
+  // })
+  .catch(e=> console.log(e))
 })
 
 // read all rekos
 
 router.get('/rekos', (req, res, next)=>{
-  Reko.find().populate("author").populate('category')
+  Reko.find().populate("author")
   .then(response=> {
     res.json(response);
   })
@@ -43,7 +39,7 @@ router.get('/rekos', (req, res, next)=>{
 
 // get one reko
 
-router.get('/reko', (req, res, next)=>{
+router.get('/rekos/:id', (req, res, next)=>{
   Reko.findById(req.params.id)
   .then(response=> {
     res.json(response);

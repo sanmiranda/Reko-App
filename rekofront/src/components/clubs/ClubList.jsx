@@ -25,7 +25,7 @@ class ClubList extends Component {
      addmember = () => {
        axios.put('http://localhost:3000/clubs/:id')
         .then(response =>{
-          this.setState({members: response.data})
+          this.setState({$push:{members: response.data}})
         })
         .catch(e => console.log(e))
       }

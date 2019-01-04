@@ -15,10 +15,12 @@ router.post('/login', (req,res,next) => {
     if(err) return res.status(500).json(info)
     if(!user) return res.status(404).json(info)
     req.login(user, () => {
-      return res.status(201).json(user)
+      return res.status(200).json(user)
     })
+    
   })(req,res,next)
 })
+
 
 router.get('/logout', (req,res,next) => {
   req.logout()
@@ -33,5 +35,22 @@ const isAuth = (req,res,next) => {
 router.get('/profile', isAuth, (req,res,next) => {
   return res.status(200).json(req.user)
 })
+
+//logout
+router.get('/logout', (req,res,next)=>{
+  req.logout();
+  res.send('Succesfully logged out');
+
+});
+
+//update user
+router.put('/user/:id', isAuth, (req,res,next)=>{
+  User.findByIdAndUpdate(req.params.id)
+  .then(response=>{
+    res.json(response ,{message: 'User updated successfully'})
+  })
+  .catch(e=> res.json(e))
+})
+
 
 module.exports = router
