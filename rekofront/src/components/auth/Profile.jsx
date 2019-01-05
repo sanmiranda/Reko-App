@@ -34,7 +34,8 @@ const IconText = ({ type, text }) => (
 class Profile extends React.Component {
 
   state={
-    user: {}
+    user: {},
+    reko: {}
   }
   componentWillMount(){
     const user = JSON.parse(localStorage.getItem('loggedUser'))
@@ -48,12 +49,12 @@ class Profile extends React.Component {
     
 
     const {user} = this.state
-
+    const {reko} = this.state
     return (
       <div className='profile'>
          <Card 
     hoverable
-    style={{ width: 350, marginLeft: 100}}
+    style={{ width: 200, marginLeft: 100}}
     cover={<img alt="profPic" src={user.img} />}
   >
     <Meta
@@ -61,31 +62,37 @@ class Profile extends React.Component {
       description= {user.email}
     />
   </Card>
-  <List
+  <h2 className='buckettitle'style={{fontSize:40}}>Bucketlist</h2>
+  <List className='bucketlist'//de los rekos en su bucketlist
     itemLayout="vertical"
     size="large"
-    pagination={{
-      onChange: (page) => {
-        console.log(page);
-      },
-      pageSize: 3,
-    }}
     dataSource={listData}
-    footer={<div><b>ant design</b> footer part</div>}
     renderItem={item => (
       <List.Item
-        key={item.title}
+        key={reko.name}
         extra={<img width={150} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
       >
         <List.Item.Meta
-          avatar={<Avatar src={item.avatar} />}
+          avatar={<Avatar src={reko.img} />}
           title={<a href={item.href}>{item.title}</a>}
-          description={item.description}
+          description={reko.description}
         />
         {item.content}
       </List.Item>
     )}
   />,
+      <Card //de los rekos del usuario
+              style={{ width: 200}}
+              cover={<img alt="example" src={reko.img} />}
+              actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+              key={reko._id}>
+               
+             <Meta
+              avatar={<Avatar src={user.img} />}
+               title={reko.name}
+               description={reko.description}
+                />
+      </Card>
       </div>
     );
   }

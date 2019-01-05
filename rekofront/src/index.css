@@ -72,3 +72,22 @@ code {
 .botonesRating{
   display:inline;
 }
+
+.ant-list-item{
+  width:30vw;
+  height:15vh;
+  
+}
+
+.bucketlist{
+  display:flex;
+  position: relative;
+  bottom: 400px;
+  left:700px
+}
+.buckettitle{
+  display:flex;
+  position: relative;
+  bottom: 405px;
+  left:700px
+}

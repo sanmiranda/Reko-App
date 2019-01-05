@@ -61,6 +61,12 @@ export default class Signup extends Component {
             <input onChange={handleText} name="password" className="input" type="password"/>
         </div>
         </div>
+        <div className="field">
+        <label className="label">Foto</label>
+        <div className="control has-icons-left has-icons-right">
+        <input name='img' type='file' placeholder= 'Subir Foto' onChange={handleText}/>
+        </div>
+        </div>
 
 
         <div className="field is-grouped">
