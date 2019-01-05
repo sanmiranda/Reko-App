@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom';
-import {Card} from 'antd';
+import {Card, Icon, Avatar} from 'antd';
 
+
+const { Meta } = Card;
 
 class RekoList extends Component {
 
   state= {
     list: [],
-    rating: []
+    rating: [],
+    user:{}
   }
 
 
@@ -47,29 +50,49 @@ class RekoList extends Component {
     //  }
 
   render() {
+    const {user} = this.state
+
     return (
       <div>
-        <div style={{width: '50%', float: 'left'}}>
+    
+        <div>
           {this.state.list.map((reko, index)=>{
-              return <Card
+              return <Card 
+              style={{ width: 400}}
+              cover={<img alt="example" src={reko.img} />}
+              actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
               key={reko._id}>
-                <Link to={`/rekos/${reko._id}`}/>
+               
+             <Meta
+              avatar={<Avatar src={user.img} />}
+               title={reko.name}
+               description={reko.description}
+                />
+                {/* <Link to={`/rekos/${reko._id}`}/>
                 <img src={reko.img} alt='reko'></img>
                 <h2>Nombre : {reko.name}</h2>
                 <h3>Categoria : {reko.category}</h3>
-                <h3>Descripción : {reko.description}</h3>
+                <h3>Descripción : {reko.description}</h3> */}
                 {/* <h3>Author : {reko.author.email}</h3> */}
                 {/* <h3>Rating : {reko.rating}</h3> */}
                 {/* <h3> Rating : ()=> this.calcrating(reko.rating)</h3> */}
                 <input type='submit' value='+ Bucketlist' onClick={()=>this.addToBucketlist(reko._id)}/>
+                <div className='botonesRating'>
                 <div>
-                  <button  onClick={()=>this.rating(3)}>Like</button>
+                  <button  onClick={()=>this.rating(3)}>
+                  <Icon type="smile" />
+                  </button>
                 </div>
                 <div>
-                  <button  onClick={()=>this.rating(1)}>Igual</button>
+                  <button  onClick={()=>this.rating(1)}>
+                  <Icon type="meh" />
+                  </button>
                 </div>
                 <div>
-                  <button  onClick={()=>this.rating(0)}>disLike</button>
+                  <button  onClick={()=>this.rating(0)}>
+                  <Icon type="frown" />
+                  </button>
+                </div>
                 </div>
               
                </Card>  
