@@ -12,3 +12,60 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  overflow: hidden;
+  background-image: url(./images/fondo1.jpg);
+
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.tituloCat {
+  text-align: center;
+}
+
+.carrusel2 {
+  background-image: url(./images/fondo4.jpg);
+  height:92vh;
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .8;
+  
+}
+
+.carrusel1 {
+  background-image: url(./images/fondo7.jpg);
+  height:92vh;
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .8;
+  
+}
+
+.titulosCard{
+  text-align: center;
+  font-size: 40px;
+}
+
+.profile{
+  background-image: url(./images/fondo4.jpg);
+  height:100vh;
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .8;
+}
+
+/* .profilecard{
+ position: relative;
+  margin-top: 30px;
+} */
+

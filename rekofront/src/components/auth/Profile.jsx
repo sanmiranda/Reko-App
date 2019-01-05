@@ -4,20 +4,11 @@ import {
   Skeleton, Switch, Card, Icon, Avatar,
 } from 'antd';
 import axios from 'axios'
+import profPic from '../../images/san1.jpg'
 
 
 
 
-
-
-
-const displayAvartar = (user) => {
-  if(user.avatarUrl){
-    return <img src={user.avatarUrl} alt='mini' />
-  } else {
-    return <img src='../../../public/images/Reko-mini.png' alt='mini' width='300' height='300'/>
-  }
-}
 
 const { Meta } = Card;
 
@@ -26,43 +17,28 @@ class Profile extends React.Component {
   state={
     user: {}
   }
- 
+  componentWillMount(){
+    const user = JSON.parse(localStorage.getItem('loggedUser'))
+    if(!user) this.props.history.push('/login')
+    else{
+      this.setState({user})
+    }
+  }
 
   render() {
 
+    const {user} = this.state
 
     return (
-      <div>
-          {/* <img src= "../../../public/images/Reko-mini.png" alt='reko'></img>
-        <Card style={{ width: 300, marginTop: 16 }} >
-          <Meta
-            
-         
-
-            description="This is the description"
-          />
-        </Card>
-
-        <Card
-          style={{ width: 300, marginTop: 16 }}
-          actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-        >
-          <Skeleton avatar active>
-            <Meta
-              avatar={<Avatar src="../../../public/images/Reko-mini.png" />}
-              title="Card title"
-              description="This is the description"
-            />
-          </Skeleton>
-        </Card> */}
-         <Card
+      <div className='profile'>
+         <Card 
     hoverable
-    style={{ width: 240 }}
-    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+    style={{ width: 350, marginLeft: 100}}
+    cover={<img alt="profPic" src={profPic} />}
   >
     <Meta
-      title="Europe Street beat"
-      description="www.instagram.com"
+      title= {user.username}
+      description= {user.email}
     />
   </Card>
       </div>
