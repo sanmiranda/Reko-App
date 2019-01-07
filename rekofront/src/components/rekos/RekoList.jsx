@@ -53,14 +53,14 @@ class RekoList extends Component {
     const {user} = this.state
 
     return (
-      <div>
+      <div className='homestyle'>
     
         <div>
           {this.state.list.map((reko, index)=>{
               return <Card 
-              style={{ width: 400}}
+              style={{ width:300}}
               cover={<img alt="example" src={reko.img} />}
-              actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+              actions={[<Icon type="edit" />, <Icon type="ellipsis" />]}
               key={reko._id}>
                
              <Meta

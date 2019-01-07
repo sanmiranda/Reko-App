@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
-import { Row, Col, Card, Carousel } from 'antd';
+import { Row, Col, Card, Button } from 'antd';
 import fotoLibros from '../../../src/images/Libros.jpg'
 import fotoSeries from '../../../src/images/series.jpg'
 import fotoPeliculas from '../../../src/images/movies.jpg'
 import fotoRestaurantes from '../../../src/images/comida.jpg'
+import fotoMiniLogo from '../../../src/images/Reko-mini.png'
 
 
 const { Meta } = Card
@@ -17,16 +18,17 @@ export default class Home extends Component {
     
     
     render() {
+      const size = this.state.size;
     return (
-      <div>
-        <Carousel effect="fade">
-    <div className='carrusel1'>
-      <h3>Bienvenido</h3>
-    </div>
-    <div className='carrusel2'><h3>2</h3></div>
-    <div className='carrusel1'><h3>3</h3></div>
-    <div className='carrusel1'><h3>4</h3></div>
-  </Carousel>
+      <div className='homestyle'>
+      <div className='homeOne'>
+      <h3>Bienvenido a Reko</h3>
+      <h3>Recomendaciones reales de gente comun</h3>
+      <h4>Unete y comparte tus experiencias y descubrimientos con el mundo.</h4>
+      <img className='logomini' alt='minilogo' src={fotoMiniLogo}/>
+      <Button className='homebutton' type="primary"  size={size}>Registrate</Button>
+      <Button className='homebutton' type="primary"  size={size}>Login</Button>
+      </div>
        <h2 className='tituloCat' style={{fontSize:50}}>Categorias</h2>
        <div className="gutter-example">
     <Row gutter={16} style={{marginLeft:10}}>

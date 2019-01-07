@@ -13,60 +13,91 @@ code {
     monospace;
 }
 
-.ant-carousel .slick-slide {
-  text-align: center;
-  height: 160px;
-  line-height: 160px;
-  overflow: hidden;
-  background-image: url(./images/fondo1.jpg);
-
-}
-
-.ant-carousel .slick-slide h3 {
-  color: #fff;
-}
+/* home */
 
 .tituloCat {
   text-align: center;
 }
 
-.carrusel2 {
-  background-image: url(./images/fondo4.jpg);
-  height:92vh;
-  background-size: contain; 
+
+.homestyle { 
+  
   background-repeat: no-repeat;
   background-position: center;
   opacity: .8;
+  background-color: black;
+  height:100vh;
   
 }
 
-.carrusel1 {
-  background-image: url(./images/fondo7.jpg);
-  height:92vh;
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: .8;
-  
+
+.homeOne h3  {
+  color: white;
 }
+
+.homeOne h4  {
+  color: white
+}
+
+/* .minilogo{
+ 
+} */
 
 .titulosCard{
   text-align: center;
   font-size: 40px;
 }
 
-.profile{
-  background-image: url(./images/fondo4.jpg);
-  height:100vh;
-  background-size: contain; 
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: .8;
+.homebutton{
+  display: flex;
+  width:200px;
+  height:200px;
 }
 
-/* .profilecard{
- position: relative;
-  margin-top: 30px;
+/* perfil */
+.profile{
+  background-color: black;
+  height:100vh;
+  opacity: .8;
+  display:flex;
+}
+
+.profilecard{
+ display:flex;
+ height:30vh;
+ width:20vw;
+
+}
+
+.bucketlist{
+  display:flex;
+  justify-content: end;
+  width: 20vw;
+
+}
+.buckettitle{
+  display:flex;
+  color:white;
+}
+
+.bucketlistCard {
+  color:white;
+}
+
+.userrekos{
+  display:flex;
+align-content:flex-end ;
+height: 30vh;
+}
+
+/* .profilebutton{
+  display:flex;
+  color: black;
+  background-color: darkgoldenrod;
+  width: 20vw;
+  flex-wrap: wrap;
+  justify-items: end
+  
 } */
 
 .botonesRating{
@@ -79,15 +110,13 @@ code {
   
 }
 
-.bucketlist{
+
+
+/* .ant-card-body{
+height:100px;
+} */
+
+.footer{
   display:flex;
-  position: relative;
-  bottom: 400px;
-  left:700px
-}
-.buckettitle{
-  display:flex;
-  position: relative;
-  bottom: 405px;
-  left:700px
+ align-content: space-between
 }

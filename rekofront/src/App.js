@@ -3,6 +3,7 @@ import './App.css';
 import Routes from './Routes';
 import { Menu, Icon } from 'antd';
 import fotoLogo from '../src/images/Copia de ReKoonlytext.png'
+import fotoMini from '../src/images/Reko-mini.png'
 
 
 const SubMenu = Menu.SubMenu;
@@ -27,7 +28,7 @@ class App extends Component {
         mode="horizontal"
       >
         <Menu.Item key="logo">
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        <a href="http://localhost:3001/" target="_blank" rel="noopener noreferrer">
         <img alt='logo' src={fotoLogo} style={{width : 100}}/>
         </a>
         </Menu.Item>
@@ -51,6 +52,29 @@ class App extends Component {
         </SubMenu>
       </Menu>
       <Routes/>
+      <Menu className='footer'
+        onClick={this.handleClick}
+        selectedKeys={[this.state.current]}
+        mode="horizontal"
+      >
+        <Menu.Item key="signup">
+          <Icon type="plus" />Signup
+        </Menu.Item>
+        <Menu.Item key="login">
+        <Icon type="login" />Login
+        </Menu.Item>
+        <Menu.Item key="rekos">
+          <Icon type="fire" />Rekos
+        </Menu.Item>
+        <Menu.Item key="logout">
+        <Icon type="logout" />Logout
+        </Menu.Item>
+        <Menu.Item key="logo">
+        <a href="http://localhost:3001/" target="_blank" rel="noopener noreferrer">
+        <img alt='logo' src={fotoMini} style={{width : 30}}/>
+        </a>
+        </Menu.Item>
+        </Menu>
       </div>
     );
   }

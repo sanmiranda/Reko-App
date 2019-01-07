@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {
-  Skeleton, Switch, Card, Icon, Avatar, List
+ Card, Icon, Avatar, List, Button, 
 } from 'antd';
 import axios from 'axios'
-import profPic from '../../images/san1.jpg'
+
 
 
 
@@ -50,45 +50,46 @@ class Profile extends React.Component {
 
     const {user} = this.state
     const {reko} = this.state
+    const size = this.state.size;
     return (
       <div className='profile'>
-         <Card 
-    hoverable
-    style={{ width: 200, marginLeft: 100}}
-    cover={<img alt="profPic" src={user.img} />}
-  >
+         
+         <Card className='profilecard'
+            hoverable
+            style={{ width: 300, marginLeft: 50}}
+            cover={<img alt="profPic" src={user.img} />}
+           >
     <Meta
       title= {user.username}
       description= {user.email}
     />
-  </Card>
-  <h2 className='buckettitle'style={{fontSize:40}}>Bucketlist</h2>
-  <List className='bucketlist'//de los rekos en su bucketlist
-    itemLayout="vertical"
-    size="large"
-    dataSource={listData}
-    renderItem={item => (
-      <List.Item
-        key={reko.name}
-        extra={<img width={150} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
-      >
-        <List.Item.Meta
-          avatar={<Avatar src={reko.img} />}
-          title={<a href={item.href}>{item.title}</a>}
-          description={reko.description}
-        />
-        {item.content}
-      </List.Item>
+    <Button className='profilebutton' type="primary" icon="plus" size={size}>Reko</Button>
+    <Button className='profilebutton' type="primary" icon="plus" size={size}>Club</Button>
+         </Card>
+            <h2 className='buckettitle'style={{fontSize:40}}>Bucketlist</h2>
+           <List className='bucketlist'//de los rekos en su bucketlist
+            itemLayout="vertical"
+            size="large"
+            dataSource={listData}
+            renderItem={item => (
+            <List.Item
+              key={reko.name}
+              extra={<img width={150} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
+             >
+           <List.Item.Meta className='bucketlistCard'
+              avatar={<Avatar src={user.img} />}
+              title={<a href={item.href}>{reko.name}</a>}
+              description= {reko.description}
+          />
+           </List.Item>
     )}
   />,
-      <Card //de los rekos del usuario
+      <Card className='userrekos' //de los rekos del usuario
               style={{ width: 200}}
               cover={<img alt="example" src={reko.img} />}
-              actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-              key={reko._id}>
+              key={reko.img}>
                
              <Meta
-              avatar={<Avatar src={user.img} />}
                title={reko.name}
                description={reko.description}
                 />

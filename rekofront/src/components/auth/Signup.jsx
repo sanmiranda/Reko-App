@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import {signup} from '../../services/auth'
+import {uploadFile} from '../../services/uploadfotos'
+
 
 export default class Signup extends Component {
     state={
@@ -24,10 +26,22 @@ export default class Signup extends Component {
         user[field] = e.target.value
         this.setState({user})
     }
+
+    handleImage = e => {
+        console.log(e.target.files);
+        const { user } = this.state;
+        const file = e.target.files[0];
+        uploadFile(file).then(link => {
+          user['img']= link
+          this.setState({ user });
+          console.log("done");
+        })
+        .catch(e=>console.log(e))
+      };
   render() {
-    const {signup, handleText} = this
+    const {signup, handleText, handleImage} = this
     return (
-      <div>
+      <div className='homestyle'>
         <form onSubmit={signup} style={{width:"50%", margin:"auto"}}>
         <h1>Sign Up</h1>
         <div className="field">
@@ -62,9 +76,9 @@ export default class Signup extends Component {
         </div>
         </div>
         <div className="field">
-        <label className="label">Foto</label>
+        <label className="label">Foto de Perfil</label>
         <div className="control has-icons-left has-icons-right">
-        <input name='img' type='file' placeholder= 'Subir Foto' onChange={handleText}/>
+        <input name='img' type='file' placeholder= 'Subir Foto' onChange={handleImage}/>
         </div>
         </div>
 

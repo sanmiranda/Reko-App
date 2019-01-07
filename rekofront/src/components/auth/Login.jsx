@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {login} from '../../services/auth'
 
 
+
 class Login extends Component {
     state={
         user: {}
@@ -39,7 +40,7 @@ class Login extends Component {
     render() {
       const {login, handleText} = this
     return (
-      <div>
+      <div className='homestyle'>
       <form onSubmit={login} style={{width:"50%", margin:"auto"}}>
       <h1>Login</h1>
 
