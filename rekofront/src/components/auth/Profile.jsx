@@ -97,7 +97,7 @@ class Profile extends React.Component {
            <List className='bucketlist'//de los rekos en su bucketlist
             itemLayout="vertical"
             size="large"
-            dataSource={this.state.bucketlist.lenght > 0 ? this.state.bucketlist : []}
+            dataSource={this.state.bucketlist}
             renderItem={reko => (
             <List.Item
               key={reko._id}
