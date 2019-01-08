@@ -63,15 +63,14 @@ code {
 }
 
 .profilecard{
- display:flex;
  height:30vh;
  width:20vw;
 
 }
 
 .bucketlist{
-  display:flex;
-  justify-content: end;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   width: 20vw;
 
 }
@@ -85,9 +84,9 @@ code {
 }
 
 .userrekos{
-  display:flex;
 align-content:flex-end ;
-height: 30vh;
+height: 25vh;
+justify-content: flex-end;
 }
 
 /* .profilebutton{

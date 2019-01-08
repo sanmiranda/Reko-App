@@ -77,7 +77,7 @@ class Profile extends React.Component {
          
          <Card className='profilecard'
             hoverable
-            style={{ width: 300, marginLeft: 50}}
+            // style={{ width: 300, marginLeft: 50}}
             cover={<img alt="profPic" src={user.img} />}
            >
     <Meta
@@ -114,7 +114,6 @@ class Profile extends React.Component {
     <div>
        {this.state.authorList.map((reko, index)=>{ 
        return <Card className='userrekos' //de los rekos del usuario
-              style={{ width: 200}}
               cover={<img alt="example" src={reko.img} />}
               key={reko._id}>
                
