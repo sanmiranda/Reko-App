@@ -104,7 +104,7 @@ class Profile extends React.Component {
               extra={<img width={150} alt="logo" src={reko.img} />}
              >
            <List.Item.Meta className='bucketlistCard'
-              avatar={<Avatar src={user.img} />}
+              avatar={<Avatar src={reko.author ? reko.author.img : reko.img} />}
               title={<a>{reko.name}</a>}
               description= {reko.description}
           />

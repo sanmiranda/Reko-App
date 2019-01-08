@@ -63,7 +63,7 @@ class RekoList extends Component {
 
   render() {
     const {user} = this.state
-
+    console.log(this.state.list)
     return (
       <div className='homestyle'>
     
@@ -76,7 +76,7 @@ class RekoList extends Component {
               key={reko._id}>
                
              <Meta
-              avatar={<Avatar src={user.img} />}
+              avatar={<Avatar src={reko.author ? reko.author.img : user.img} />}
                title={reko.name}
                description={reko.description}
                 />

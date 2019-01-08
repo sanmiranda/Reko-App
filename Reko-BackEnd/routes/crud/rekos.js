@@ -91,7 +91,13 @@ router.put('/bucket', (req,res,next)=>{
 // get rekos de bucketlist
 router.get('/bucketrekos/:id', (req, res, next)=>{
   const {id} = req.params
-  User.findById(id).populate("bucketlist")
+  User.findById(id).populate({
+    path:'bucketlist',
+    populate:{
+      path:'author',
+      model:'User'
+    }
+  })
   .then(user=> {
     res.status(200).json(user);
   })
