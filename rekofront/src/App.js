@@ -4,6 +4,7 @@ import Routes from './Routes';
 import { Menu, Icon } from 'antd';
 import fotoLogo from '../src/images/Copia de ReKoonlytext.png'
 import fotoMini from '../src/images/Reko-mini.png'
+import {Link} from 'react-router-dom';
 
 
 const SubMenu = Menu.SubMenu;
@@ -33,23 +34,48 @@ class App extends Component {
         </a>
         </Menu.Item>
         <Menu.Item key="signup">
+        <Link to={'/signup'}>
           <Icon type="plus" />Signup
+        </Link>
         </Menu.Item>
         <Menu.Item key="login">
+        <Link to={'/login'}>
         <Icon type="login" />Login
+        </Link>
         </Menu.Item>
         <Menu.Item key="rekos">
+        <Link to={'/rekos'}>
           <Icon type="fire" />Rekos
+        </Link>
         </Menu.Item>
         <Menu.Item key="logout">
+        <Link to={'/logout'}>
         <Icon type="logout" />Logout
+        </Link>
         </Menu.Item>
         <SubMenu title={<span className="submenu-title-wrapper"><Icon type="bars" />Categorias</span>}>
-            <Menu.Item key="setting:1">Libros</Menu.Item>
-            <Menu.Item key="setting:2">Series</Menu.Item>
-            <Menu.Item key="setting:3">Peliculas</Menu.Item>
-            <Menu.Item key="setting:4">Restaurantes</Menu.Item>
+            <Menu.Item key="setting:1">Libros
+            <Link to={'/categories/Libros'}>
+            </Link>
+            </Menu.Item>
+            <Menu.Item key="setting:2">Series
+            <Link to={'/categories/Series'}>
+            </Link>
+            </Menu.Item>
+            <Menu.Item key="setting:3">Peliculas
+            <Link to={'/categories/Peliculas'}>
+            </Link>
+            </Menu.Item>
+            <Menu.Item key="setting:4">Restaurantes
+            <Link to={'/categories/Restaurantes'}>
+            </Link>
+            </Menu.Item>
         </SubMenu>
+        <Menu.Item key="profile">
+        <Link to={'/profile'}>
+        <Icon type="profile" />Mi Perfil
+        </Link>
+        </Menu.Item>
       </Menu>
       <Routes/>
       <Menu className='footer'
@@ -58,16 +84,24 @@ class App extends Component {
         mode="horizontal"
       >
         <Menu.Item key="signup">
+          <Link to={'/signup'}>
           <Icon type="plus" />Signup
+          </Link>
         </Menu.Item>
         <Menu.Item key="login">
+        <Link to={'/login'}>
         <Icon type="login" />Login
+        </Link>
         </Menu.Item>
         <Menu.Item key="rekos">
+        <Link to={'/rekos'}>
           <Icon type="fire" />Rekos
+        </Link>
         </Menu.Item>
         <Menu.Item key="logout">
+        <Link to={'/logout'}>
         <Icon type="logout" />Logout
+        </Link>
         </Menu.Item>
         <Menu.Item key="logo">
         <a href="http://localhost:3001/" target="_blank" rel="noopener noreferrer">
@@ -79,7 +113,6 @@ class App extends Component {
     );
   }
 }
-
 export default App;
 
 

@@ -16,7 +16,7 @@ router.post('/login', (req,res,next) => {
     if(!user) return res.status(404).json(info)
     req.login(user, () => {
       return res.status(200).json(user)
-    })
+    }).populate('bucketlist')
     
   })(req,res,next)
 })
@@ -51,6 +51,8 @@ router.put('/user/:id', isAuth, (req,res,next)=>{
   })
   .catch(e=> res.json(e))
 })
+
+
 
 
 module.exports = router

@@ -5,17 +5,15 @@ import {uploadFile} from '../../services/uploadfotos'
 
 class AddReko extends Component {
   state = {
+    user:{},
     img : "",
     name: "",
     category : "",
     description : "",
     rating : "",
-    author: null,
-    //hits: null,
+    author: "",
     flagCreado : false
   }
-
-  
   
   handleFormSubmit= (event)=> {
     event.preventDefault();
@@ -24,7 +22,7 @@ class AddReko extends Component {
     const category = this.state.category;
     const description = this.state.description;
     const rating = this.state.rating;
-    const author = this.state.author;
+    const author = this.state.user._id;
     let flagCreado = this.state.flagCreado
     axios.post('http://localhost:3000/rekos', {img, name, category, description, rating, author})
     .then(()=>{
@@ -63,14 +61,22 @@ class AddReko extends Component {
     })
     .catch(e=>console.log(e))
   };
+  componentWillMount(){
+  const user = JSON.parse(localStorage.getItem('loggedUser'))
+  if(!user) this.props.history.push('/login')
+  else{
+    this.setState({user})
+  }
+}
+// addauthor = () => {
+//   axios.put('http://localhost:3000/rekos/:id')
+//    .then(response =>{
+//      this.setState({$push:{author: this.user.id}})
+//    })
+//    .catch(e => console.log(e))
+//  }
   
   render() {
-    
-    const cachedHits = localStorage.getItem(this.input);
-    if (cachedHits) {
-      this.setState({ author: JSON.parse(cachedHits) });
-      return;
-    }
     const categorias = [{
       value: 'Series',
       label: 'Series',
@@ -92,7 +98,7 @@ class AddReko extends Component {
           <input name='name' value={this.state.name} type='text' placeholder= 'nombre' onChange={this.handleChange}/>
           <Cascader style={{width:150}} options={categorias} onChange={this.handleSelectChange} placeholder="Please select" />
           <input name='description' value={this.state.description} type='text' placeholder='descripción' onChange={this.handleChange}/>
-          <input type='submit'/>
+          <input type='submit' />
           {this.state.flagCreado && <p>creado</p>}
         </form> 
     

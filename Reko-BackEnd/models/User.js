@@ -25,10 +25,12 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   }],
-  bucketlist: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Reko'
-  }],
+  bucketlist:[
+    {
+      type:Schema.Types.ObjectId,
+      ref:'Reko'
+    }
+  ],
   rekos: [{
     type: Schema.Types.ObjectId,
     ref: 'Reko'

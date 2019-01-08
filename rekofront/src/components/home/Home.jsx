@@ -6,6 +6,8 @@ import fotoSeries from '../../../src/images/series.jpg'
 import fotoPeliculas from '../../../src/images/movies.jpg'
 import fotoRestaurantes from '../../../src/images/comida.jpg'
 import fotoMiniLogo from '../../../src/images/Reko-mini.png'
+import {Link} from 'react-router-dom';
+
 
 
 const { Meta } = Card
@@ -39,7 +41,8 @@ export default class Home extends Component {
         style={{ width: 320 }}
         cover={<img alt="example" src={fotoLibros} />}
         >
-      <Meta className='titulosCard'
+      <Meta 
+      className='titulosCard'
       title="Libros"
       />
       </Card>

@@ -35,14 +35,35 @@ class Profile extends React.Component {
 
   state={
     user: {},
-    reko: {}
+    reko: {},
+    authorList:[],
+    bucketlist:[]
   }
   componentWillMount(){
     const user = JSON.parse(localStorage.getItem('loggedUser'))
     if(!user) this.props.history.push('/login')
     else{
       this.setState({user})
+      this.getAuthorRekos(user._id)
+      this.getBucketRekos(user._id)
     }
+  }
+
+  getAuthorRekos = (author) => {
+    axios.get('http://localhost:3000/authorrekos/' + author )
+      .then(response =>{
+        this.setState({authorList: response.data})
+      })
+      .catch(e =>console.log(e))
+  }
+
+  getBucketRekos = (author) => {
+    axios.get('http://localhost:3000/bucketrekos/' + author )
+      .then(response =>{
+        console.log(response.data.bucketlist)
+        this.setState({bucketlist: response.data.bucketlist})
+      })
+      .catch(e =>console.log(e))
   }
 
   render() {
@@ -63,37 +84,47 @@ class Profile extends React.Component {
       title= {user.username}
       description= {user.email}
     />
-    <Button className='profilebutton' type="primary" icon="plus" size={size}>Reko</Button>
+    <p>{user.name}</p>
+    <p>{user.lastname}</p>
+    <Link to={'/addrekos'}>
+    <Button 
+    className='profilebutton' type="primary" icon="plus" size={size}>Reko
+    </Button>
+    </Link>
     <Button className='profilebutton' type="primary" icon="plus" size={size}>Club</Button>
          </Card>
             <h2 className='buckettitle'style={{fontSize:40}}>Bucketlist</h2>
            <List className='bucketlist'//de los rekos en su bucketlist
             itemLayout="vertical"
             size="large"
-            dataSource={listData}
-            renderItem={item => (
+            dataSource={this.state.bucketlist.lenght > 0 ? this.state.bucketlist : []}
+            renderItem={reko => (
             <List.Item
-              key={reko.name}
-              extra={<img width={150} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
+              key={reko._id}
+              extra={<img width={150} alt="logo" src={reko.img} />}
              >
            <List.Item.Meta className='bucketlistCard'
               avatar={<Avatar src={user.img} />}
-              title={<a href={item.href}>{reko.name}</a>}
+              title={<a>{reko.name}</a>}
               description= {reko.description}
           />
            </List.Item>
     )}
-  />,
-      <Card className='userrekos' //de los rekos del usuario
+  />
+    <div>
+       {this.state.authorList.map((reko, index)=>{ 
+       return <Card className='userrekos' //de los rekos del usuario
               style={{ width: 200}}
               cover={<img alt="example" src={reko.img} />}
-              key={reko.img}>
+              key={reko._id}>
                
              <Meta
                title={reko.name}
                description={reko.description}
                 />
       </Card>
+       })}
+      </div>
       </div>
     );
   }

@@ -11,7 +11,8 @@ class RekoList extends Component {
   state= {
     list: [],
     rating: [],
-    user:{}
+    user:{},
+    bucketlist:[]
   }
 
 
@@ -19,21 +20,32 @@ class RekoList extends Component {
     axios.get('http://localhost:3000/rekos')
       .then(response =>{
         this.setState({list: response.data})
+        console.log(response.data)
       })
       .catch(e =>console.log(e))
   }
 
     componentDidMount(){
       this.getRekos()
+        const user = JSON.parse(localStorage.getItem('loggedUser'))
+        if(!user) this.props.history.push('/login')
+        else{
+          this.setState({user})
+      }
     }
 
-    addToBucketlist = () => {
-      axios.put('http://localhost:3000/user/:id')
+    addToBucketlist = (rekoid) => {
+      console.log(rekoid)
+      const bucket ={user:this.state.user, rekoid}
+      console.log(bucket)
+      axios.put('http://localhost:3000/bucket', bucket)
        .then(response =>{
-         this.setState({$push:{bucketlist: response.data}})
+         console.log(response)
        })
        .catch(e => console.log(e))
      }
+
+     
     //  rating = () => {
     //    axios.put('http://localhost:3000/rekos/:id')
     //    .then(response =>{
@@ -76,7 +88,9 @@ class RekoList extends Component {
                 {/* <h3>Author : {reko.author.email}</h3> */}
                 {/* <h3>Rating : {reko.rating}</h3> */}
                 {/* <h3> Rating : ()=> this.calcrating(reko.rating)</h3> */}
-                <input type='submit' value='+ Bucketlist' onClick={()=>this.addToBucketlist(reko._id)}/>
+                <button value='+ Bucketlist' onClick={()=>this.addToBucketlist(reko._id)}>
+                + Bucketlist
+                </button>
                 <div className='botonesRating'>
                 <div>
                   <button  onClick={()=>this.rating(3)}>
