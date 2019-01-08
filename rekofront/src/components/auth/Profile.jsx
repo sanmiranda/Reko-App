@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {
- Card, Icon, Avatar, List, Button, 
+ Card, Icon, Avatar, List, Button,Row,Col 
 } from 'antd';
 import axios from 'axios'
 
@@ -35,18 +35,34 @@ class Profile extends React.Component {
 
   state={
     user: {},
+    loggedUser:{},
     reko: {},
     authorList:[],
     bucketlist:[]
   }
   componentWillMount(){
+    this.getUser()
     const user = JSON.parse(localStorage.getItem('loggedUser'))
     if(!user) this.props.history.push('/login')
     else{
-      this.setState({user})
+      this.setState({loggedUser:user})
       this.getAuthorRekos(user._id)
       this.getBucketRekos(user._id)
-    }
+    }    
+  }
+
+  // componentWillUpdate(){
+  //   this.getUser()
+  // }
+
+  getUser=()=>{
+    const {id} = this.props.match.params
+    axios.get('http://localhost:3000/users/' + id )
+      .then(response =>{
+        console.log(response)
+        this.setState({user: response.data})
+      })
+      .catch(e =>console.log(e))
   }
 
   getAuthorRekos = (author) => {
@@ -66,34 +82,70 @@ class Profile extends React.Component {
       .catch(e =>console.log(e))
   }
 
+
+
   render() {
     
 
     const {user} = this.state
+    
     const {reko} = this.state
     const size = this.state.size;
     return (
+      <React.Fragment>
       <div className='profile'>
-         
-         <Card className='profilecard'
+
+        <div className='profilecard'>
+         <Card 
             hoverable
             // style={{ width: 300, marginLeft: 50}}
             cover={<img alt="profPic" src={user.img} />}
            >
     <Meta
-      title= {user.username}
+      title= {user.elUsername}
       description= {user.email}
     />
     <p>{user.name}</p>
     <p>{user.lastname}</p>
-    <Link to={'/addrekos'}>
-    <Button 
-    className='profilebutton' type="primary" icon="plus" size={size}>Reko
-    </Button>
-    </Link>
-    <Button className='profilebutton' type="primary" icon="plus" size={size}>Club</Button>
+  
          </Card>
-            <h2 className='buckettitle'style={{fontSize:40}}>Bucketlist</h2>
+         <div className='botonesAdd'>
+         <Link to={'/addrekos'}>
+         <Button 
+         className='profilebutton' type="primary" icon="plus" size={size}>Reko
+         </Button>
+         </Link>
+         <Link to={'/addclubs'}>
+         <Button 
+         className='profilebutton' type="primary" icon="plus" size={size}>Club
+         </Button>
+         </Link>
+         </div>
+  
+         <div className='misrekosttitle'>
+         <h2 style={{fontSize:40}}>Mis Rekos</h2>
+         </div>
+         <div className='userRekos'>
+       
+       {this.state.authorList.map((reko, index)=>{ 
+       return <Card  //de los rekos del usuario
+              cover={<img alt="example" src={reko.img} />}
+              key={reko._id}>
+               
+             <Meta
+               title={reko.name}
+               description={'a'}
+                />
+                <p>{reko.category}</p>
+      </Card>
+       })}
+      
+      </div>
+         
+         </div>
+         <div className='buckettitle'>
+         <h2 style={{fontSize:40}}>Bucketlist</h2>
+         
            <List className='bucketlist'//de los rekos en su bucketlist
             itemLayout="vertical"
             size="large"
@@ -101,30 +153,33 @@ class Profile extends React.Component {
             renderItem={reko => (
             <List.Item
               key={reko._id}
-              extra={<img width={150} alt="logo" src={reko.img} />}
+              extra={<img Width={'150px'} height='100px' alt="logo" src={reko.img} />}
              >
            <List.Item.Meta className='bucketlistCard'
-              avatar={<Avatar src={reko.author ? reko.author.img : reko.img} />}
-              title={<a>{reko.name}</a>}
-              description= {reko.description}
+              avatar={
+                <Link to={`/profile/${reko.author ? reko.author._id : reko.author }`} >
+              <Avatar src={reko.author ? reko.author.img : reko.img} />
+              </Link>}
+              description= {reko.category}
+              title={<a href='/rekos/_id'>{reko.name}</a>}
+              
           />
+
+          
            </List.Item>
+           
     )}
   />
-    <div>
-       {this.state.authorList.map((reko, index)=>{ 
-       return <Card className='userrekos' //de los rekos del usuario
-              cover={<img alt="example" src={reko.img} />}
-              key={reko._id}>
-               
-             <Meta
-               title={reko.name}
-               description={reko.description}
-                />
-      </Card>
-       })}
-      </div>
-      </div>
+  
+         </div>
+         
+         
+         </div>
+
+
+            
+    
+      </React.Fragment>
     );
   }
 }

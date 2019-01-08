@@ -29,9 +29,9 @@ class App extends Component {
         mode="horizontal"
       >
         <Menu.Item key="logo">
-        <a href="http://localhost:3001/" target="_blank" rel="noopener noreferrer">
+        <Link to={"/"}>
         <img alt='logo' src={fotoLogo} style={{width : 100}}/>
-        </a>
+        </Link>
         </Menu.Item>
         <Menu.Item key="signup">
         <Link to={'/signup'}>
@@ -55,19 +55,19 @@ class App extends Component {
         </Menu.Item>
         <SubMenu title={<span className="submenu-title-wrapper"><Icon type="bars" />Categorias</span>}>
             <Menu.Item key="setting:1">Libros
-            <Link to={'/categories/Libros'}>
+            <Link to={'/rekos?category=Libros'}>
             </Link>
             </Menu.Item>
             <Menu.Item key="setting:2">Series
-            <Link to={'/categories/Series'}>
+            <Link to={'/rekos?category=Series'}>
             </Link>
             </Menu.Item>
             <Menu.Item key="setting:3">Peliculas
-            <Link to={'/categories/Peliculas'}>
+            <Link to={'/rekos?category=Peliculas'}>
             </Link>
             </Menu.Item>
             <Menu.Item key="setting:4">Restaurantes
-            <Link to={'/categories/Restaurantes'}>
+            <Link to={'/rekos?category=Restaurantes'}>
             </Link>
             </Menu.Item>
         </SubMenu>
@@ -104,9 +104,9 @@ class App extends Component {
         </Link>
         </Menu.Item>
         <Menu.Item key="logo">
-        <a href="http://localhost:3001/" target="_blank" rel="noopener noreferrer">
+        <Link to={"/"}>
         <img alt='logo' src={fotoMini} style={{width : 30}}/>
-        </a>
+        </Link>
         </Menu.Item>
         </Menu>
       </div>

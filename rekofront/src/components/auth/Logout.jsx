@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
  const Logout = () => {
    return(
-   <div>
+   <div className='homestyle2'>
      <h2>Succesfully LoggedOut</h2>
      <Link to={'/'}>
         <button>Home</button>

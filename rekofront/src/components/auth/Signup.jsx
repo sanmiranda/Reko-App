@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 // import {Link} from 'react-router-dom'
 import {signup} from '../../services/auth'
 import {uploadFile} from '../../services/uploadfotos'
+import fotoLogo from '../../images/Copia de ReKoonlytext.png'
+
 
 
 export default class Signup extends Component {
@@ -41,7 +43,12 @@ export default class Signup extends Component {
   render() {
     const {signup, handleText, handleImage} = this
     return (
-      <div className='homestyle'>
+      <div className='homestyle2'>
+      <div className='rekooo'>
+      <h2>Bienvenido a </h2>
+      <img alt='logo'src={fotoLogo} style={{width:300}}/>
+      </div>
+      <div className='formulario'>
         <form onSubmit={signup} style={{width:"50%", margin:"auto"}}>
         <h1>Sign Up</h1>
         <div className="field">
@@ -90,6 +97,7 @@ export default class Signup extends Component {
 
         </div>
       </form>
+      </div>
       </div>
     )
   }

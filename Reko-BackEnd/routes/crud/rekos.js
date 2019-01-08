@@ -30,11 +30,21 @@ router.post('/rekos', (req, res, next)=>{
 // read all rekos
 
 router.get('/rekos', (req, res, next)=>{
-  Reko.find().populate("author")
+  const {category} = req.query
+  if (category){
+    Reko.find({category}).populate("author")
   .then(response=> {
     res.json(response);
   })
   .catch(e=> res.json(e))
+  }else{
+    Reko.find().populate("author")
+    .then(response=> {
+      res.json(response);
+    })
+    .catch(e=> res.json(e))
+  }
+  
 })
 
 // get one reko
@@ -100,6 +110,15 @@ router.get('/bucketrekos/:id', (req, res, next)=>{
   })
   .then(user=> {
     res.status(200).json(user);
+  })
+  .catch(e=> res.json(e))
+})
+
+//get rekos by category
+router.get('/rekos/categorias', (req,res,next)=>{
+  Reko.find(category)
+  .then(response=> {
+    res.json(response);
   })
   .catch(e=> res.json(e))
 })

@@ -11,6 +11,7 @@ import AddCategory from './components/categories/AddCategory';
 import AddClub from './components/clubs/AddClub';
 import AddReko from './components/rekos/AddReko';
 import Logout from './components/auth/Logout';
+import UserList from './components/users/UserList';
 
 
 function Routes() {
@@ -19,7 +20,7 @@ function Routes() {
       <Route exact path="/" component={Home}/>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={Signup}/>
-      <Route path="/profile" component={Profile}/>
+      <Route path="/profile/:id" component={Profile}/>
       <Route path="/rekos" component={RekoList}/>
       <Route path="/categories" component={ListCategories}/>
       <Route path="/clubs" component={ClubList}/>
@@ -27,6 +28,7 @@ function Routes() {
       <Route path="/addclubs" component={AddClub}/>
       <Route path="/addrekos" component={AddReko}/>
       <Route path="/logout" component={Logout}/>
+      <Route path="/users" component={UserList}/>
     </Switch>
   )
 }

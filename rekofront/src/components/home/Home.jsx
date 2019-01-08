@@ -36,19 +36,24 @@ export default class Home extends Component {
     <Row gutter={16} style={{marginLeft:10}}>
       <Col className="gutter-row" span={6}>
         <div className="gutter-box"></div>
+        <Link to={'/rekos?category=Libros'}>
         <Card
         hoverable
         style={{ width: 320 }}
-        cover={<img alt="example" src={fotoLibros} />}
+        cover={
+        <img alt="example" src={fotoLibros} />}
         >
       <Meta 
       className='titulosCard'
       title="Libros"
       />
+     
       </Card>
+      </Link>
       </Col>
       <Col className="gutter-row" span={6}>
         <div className="gutter-box"></div>
+        <Link to={'/rekos?category=Series'}>
         <Card
         hoverable
         style={{ width: 320 }}
@@ -58,9 +63,11 @@ export default class Home extends Component {
       title="Series"
       />
       </Card>
+      </Link>
       </Col>
       <Col className="gutter-row" span={6}>
         <div className="gutter-box"></div>
+        <Link to={'/rekos?category=Peliculas'}>
         <Card
         hoverable
         style={{ width: 320 }}
@@ -70,9 +77,11 @@ export default class Home extends Component {
       title="Peliculas"
       />
       </Card>
+      </Link>
       </Col>
       <Col className="gutter-row" span={6}>
         <div className="gutter-box"></div>
+        <Link to={'/rekos?category=Restaurantes'}>
         <Card
         hoverable
         style={{ width: 320 }}
@@ -82,6 +91,7 @@ export default class Home extends Component {
       title="Restaurantes"
       />
       </Card>
+      </Link>
       </Col>
     </Row>
      </div>

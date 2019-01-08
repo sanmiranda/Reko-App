@@ -79,11 +79,13 @@ const categories = require('./routes/crud/categories');
 const clubs = require('./routes/crud/clubs');
 const rekos = require('./routes/crud/rekos');
 const auth = require('./routes/auth/auth');
+const users = require('./routes/crud/users');
 app.use('/auth', auth);
 app.use('/', categories);
 app.use('/', clubs);
 app.use('/', rekos);
 app.use('/', index);
+app.use('/', users)
 
 
 module.exports = app;

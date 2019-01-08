@@ -17,7 +17,11 @@ class RekoList extends Component {
 
 
   getRekos = () => {
-    axios.get('http://localhost:3000/rekos')
+    const {search} = this.props.location
+    let url
+    if(search) url = 'http://localhost:3000/rekos'+search
+    else url = 'http://localhost:3000/rekos'
+    axios.get(url)
       .then(response =>{
         this.setState({list: response.data})
         console.log(response.data)
@@ -25,7 +29,7 @@ class RekoList extends Component {
       .catch(e =>console.log(e))
   }
 
-    componentDidMount(){
+    componentWillMount(){
       this.getRekos()
         const user = JSON.parse(localStorage.getItem('loggedUser'))
         if(!user) this.props.history.push('/login')
@@ -71,21 +75,27 @@ class RekoList extends Component {
           {this.state.list.map((reko, index)=>{
               return <Card 
               style={{ width:300}}
-              cover={<img alt="example" src={reko.img} />}
+              cover={
+              <img alt="example" src={reko.img} />
+              }
               actions={[<Icon type="edit" />, <Icon type="ellipsis" />]}
               key={reko._id}>
-               
+               <Link to={`/rekos/${reko._id}`}>
              <Meta
-              avatar={<Avatar src={reko.author ? reko.author.img : user.img} />}
+              avatar={
+                <Link to={`/profile/${user._id}`}>
+              <Avatar src={reko.author ? reko.author.img : user.img} />
+              </Link>}
                title={reko.name}
-               description={reko.description}
+               description={reko.category}
                 />
+                </Link>
                 {/* <Link to={`/rekos/${reko._id}`}/>
                 <img src={reko.img} alt='reko'></img>
                 <h2>Nombre : {reko.name}</h2>
                 <h3>Categoria : {reko.category}</h3>
                 <h3>Descripción : {reko.description}</h3> */}
-                {/* <h3>Author : {reko.author.email}</h3> */}
+                <h3>Autor : {reko.author ? reko.author.username : reko.author}</h3> 
                 {/* <h3>Rating : {reko.rating}</h3> */}
                 {/* <h3> Rating : ()=> this.calcrating(reko.rating)</h3> */}
                 <button value='+ Bucketlist' onClick={()=>this.addToBucketlist(reko._id)}>
