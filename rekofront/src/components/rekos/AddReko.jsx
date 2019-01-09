@@ -102,9 +102,9 @@ class AddReko extends Component {
     }];
         const user = this.state.user
     return (
-      <div className='homestyle2'>
+      <div className='homestyle3'>
             <div className='formulario'>
-        <form onSubmit={this.handleFormSubmit} style={{width:"50%", margin:"auto"}}>
+        <form onSubmit={this.handleFormSubmit} style={{ margin:"auto", padding:"5% 3%"}}>
         <h1>Agregar Reko</h1>
         <div className="field">
         <label className="label">Subir Foto</label>
@@ -127,14 +127,11 @@ class AddReko extends Component {
           <div className="field">
           <label className="label">Descripcion</label>
          <div className="control">
-          <input name='description' value={this.state.description} type='text' placeholder='descripción' onChange={this.handleChange}/>
+          <input name='description' value={this.state.description} type='text' placeholder=' agregar descripción' onChange={this.handleChange}/>
           </div>
           </div>
-
-          <input type='submit' />
-          
-
-
+          <br/>
+          <input className='botonaddreko' type='submit'placeholder= 'Agregar Reko' />
           {this.state.flagCreado &&  <Progress  style={{width:200}} percent={100} status="success" />   }
         </form> 
           </div>

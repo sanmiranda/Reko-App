@@ -141,7 +141,7 @@ class Profile extends React.Component {
             <div style={{display:"flex"}}>
               <h2 style={{fontSize:40, color:"white"}}>Mis Rekos</h2> <Link to={'/addrekos'}>
               <Button 
-              className='profilebutton' style={{backgroundColor:"#d8c361", border:"none", color:"white", marginTop:"20px", marginLeft:"10px"}} icon="plus" size={size}>Reko
+              className='profilebutton' style={{backgroundColor:"#d8c361", border:"none", color:"black", marginTop:"20px", marginLeft:"10px", width:'100px'}} icon="plus" size={size}>Reko
               </Button>
               </Link>
               </div>
@@ -187,7 +187,7 @@ class Profile extends React.Component {
                   <Avatar src={reko.author ? reko.author.img : reko.img} />
                   </Link>} 
               />
-                <button onClick={()=>this.removeBucketReko(reko._id)}>
+                <button onClick={()=>this.removeBucketReko(reko._id)} className='button' style={{backgroundColor:"#d8c361"}}>
                     - de Bucketlist
                 </button>
               <Link to={`/rekos/${reko._id}`}>

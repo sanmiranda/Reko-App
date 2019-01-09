@@ -42,7 +42,7 @@ class Login extends Component {
     return (
       <div className='homestyle3'>
       <div className='formulario'>
-      <form onSubmit={login} style={{width:"50%", margin:"auto"}}>
+      <form onSubmit={login} style={{ margin:"auto", padding:"5% 3%"}}>
       <h1>Login</h1>
 
       <div className="field">

@@ -263,6 +263,16 @@ width:100vw;
   direction:column;
 }
 
+.botonaddreko{
+  background-color: #d8c361;
+  border: none;
+  color: black;
+  width: 120px;
+  height: 40px;
+  margin: 20px 0;
+  border-radius: 8px
+}
+
 .homestyle2 progress{
   color: gray !important;
   background-color: gray !important;
@@ -299,3 +309,4 @@ width:100vw;
 .ant-list-item{
   height: auto !important;
 }
+

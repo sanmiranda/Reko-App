@@ -30,7 +30,9 @@ export default class Home extends Component {
               <h1>Recomendaciones reales de gente comun</h1>
               <h4>Unete y comparte tus experiencias y descubrimientos con el mundo.</h4>
               <br/>
+              <Link to={'/signup'}>
               <Button className='homebutton' style={{backgroundColor:"#d8c361", border:"none", color:"black"}} size={size}>Registrate</Button>
+              </Link>
             </div>
         </div>
         <br/>
