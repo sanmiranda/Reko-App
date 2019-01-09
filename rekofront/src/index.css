@@ -17,17 +17,39 @@ code {
 
 .tituloCat {
   text-align: center;
+  color:white;
+  width:100px;
+  height:100px;
 }
 
 
 .homestyle { 
-  
+  display:flex;
   background-repeat: no-repeat;
   background-position: center;
   opacity: .8;
   background-color: black;
   height:100%;
   
+}
+
+.homestyle2 button {
+  background-color: white;
+  color:black;
+  border-color:white;
+  direction:column;
+  justify-content: space-between;
+  flex-wrap:wrap;
+
+}
+
+.logomini{
+  align-items: flex-end;
+  width:600px;
+}
+
+.catHome{
+  justify-content: flex-end
 }
 
 .homestyle2 { 
@@ -48,6 +70,12 @@ code {
 .homeOne h4  {
   color: white
 }
+
+.homeOne h1  {
+  color: white;
+  font-size: 50px
+}
+
 
 /* .minilogo{
  
@@ -75,10 +103,11 @@ code {
 
 .profilecard{
  flex-wrap: wrap;
-  height:100%;
- width:15%;
+  height:20%;
+ width:20%;
  margin-left:20px;
  margin-top:20px;
+ border-radius: 10px;
 
 }
 
@@ -89,14 +118,22 @@ code {
   margin-left:300px; 
 
 }
-.buckettitle{
+.buckettitle {
   color:white;
   align-content: flex-end;
   justify-content: flex-end;
   margin-left:300px; 
-
-  
 }
+
+.buckettitle h2{
+  color:white;
+}
+
+.misrekosttitle h2{
+  color:white;
+
+}
+
 
 .bucketlistCard {
   color:white !important
@@ -126,11 +163,6 @@ code {
 }
 
 
-
-/* .ant-card-body{
-height:100px;
-} */
-
 .footer{
   display:flex;
  align-content: space-between
@@ -145,12 +177,60 @@ height:100px;
  border-color: black;
  color:black;
  flex-wrap:wrap;
-
+margin-left: 450px;
+margin-top:100px;
+border-radius: 10px;
 
 }
 
-.rekooo{
-  align-items: center;
-  color:white;
+
+.rekocard{
+  display:flex;
+  width: 100%;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  opacity:.9;
+  
+}
+
+.padreImagenCard{
+overflow: hidden;
+width:100vw;
+
+}
+
+.padreImagenCard > * {
+  margin: 5vw;
+  width: 25vw;
+  margin-bottom: 20px;
+  margin-top:20px
+}
+
+.padreImagenCard img {
+  width: 300px;
+  height: 300px;
+}
+
+.rekocard button {
+  background-color: black;
+  opacity: .9;
+  color:white;
+  border-color: black;
+  border-radius: 8px;
+}
+
+.botonesAdd button{
+  background-color: white;
+  color:black;
+  border-color:white;
+  direction:column;
+}
+
+.homestyle2 progress{
+  color: gray !important;
+  background-color: gray !important;
+  width: 100px !important;
+
 }

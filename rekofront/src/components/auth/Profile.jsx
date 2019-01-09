@@ -46,9 +46,17 @@ class Profile extends React.Component {
     if(!user) this.props.history.push('/login')
     else{
       this.setState({loggedUser:user})
-      this.getAuthorRekos(user._id)
-      this.getBucketRekos(user._id)
+      this.getAuthorRekos()
+      this.getBucketRekos()
     }    
+  }
+
+  componentWillReceiveProps(a){
+    console.log(a)
+    this.getUser()
+    this.getAuthorRekos()
+    this.getBucketRekos()
+    
   }
 
   // componentWillUpdate(){
@@ -66,7 +74,8 @@ class Profile extends React.Component {
   }
 
   getAuthorRekos = (author) => {
-    axios.get('http://localhost:3000/authorrekos/' + author )
+    const {id} = this.props.match.params
+    axios.get('http://localhost:3000/authorrekos/' + id )
       .then(response =>{
         this.setState({authorList: response.data})
       })
@@ -74,7 +83,8 @@ class Profile extends React.Component {
   }
 
   getBucketRekos = (author) => {
-    axios.get('http://localhost:3000/bucketrekos/' + author )
+    const {id} = this.props.match.params
+    axios.get('http://localhost:3000/bucketrekos/' + id )
       .then(response =>{
         console.log(response.data.bucketlist)
         this.setState({bucketlist: response.data.bucketlist})
@@ -87,7 +97,7 @@ class Profile extends React.Component {
   render() {
     
 
-    const {user} = this.state
+    const {user, loggedUser} = this.state
     
     const {reko} = this.state
     const size = this.state.size;
@@ -107,19 +117,20 @@ class Profile extends React.Component {
     />
     <p>{user.name}</p>
     <p>{user.lastname}</p>
-  
+     
          </Card>
+         {/* </div> */}
          <div className='botonesAdd'>
          <Link to={'/addrekos'}>
          <Button 
          className='profilebutton' type="primary" icon="plus" size={size}>Reko
          </Button>
          </Link>
-         <Link to={'/addclubs'}>
+         {/* <Link to={'/addclubs'}>
          <Button 
          className='profilebutton' type="primary" icon="plus" size={size}>Club
          </Button>
-         </Link>
+         </Link> */}
          </div>
   
          <div className='misrekosttitle'>
@@ -129,14 +140,14 @@ class Profile extends React.Component {
        
        {this.state.authorList.map((reko, index)=>{ 
        return <Card  //de los rekos del usuario
-              cover={<img alt="example" src={reko.img} />}
+              cover={<img alt="rekopic" src={reko.img} />}
               key={reko._id}>
-               
-             <Meta
-               title={reko.name}
-               description={'a'}
-                />
+
+                 <Link to={`/rekos/${reko._id}`}>
+                  <h2>{reko.name}</h2>
+                </Link>
                 <p>{reko.category}</p>
+              
       </Card>
        })}
       
@@ -159,11 +170,13 @@ class Profile extends React.Component {
               avatar={
                 <Link to={`/profile/${reko.author ? reko.author._id : reko.author }`} >
               <Avatar src={reko.author ? reko.author.img : reko.img} />
-              </Link>}
-              description= {reko.category}
-              title={<a href='/rekos/_id'>{reko.name}</a>}
-              
+              </Link>} 
           />
+          <Link to={`/rekos/${reko._id}`}>
+             <h2>{reko.name}</h2>
+          </Link>
+             <p> {reko.category} </p>
+             
 
           
            </List.Item>
@@ -172,9 +185,7 @@ class Profile extends React.Component {
   />
   
          </div>
-         
-         
-         </div>
+        </div>
 
 
             

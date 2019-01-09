@@ -5,7 +5,7 @@ import { Menu, Icon } from 'antd';
 import fotoLogo from '../src/images/Copia de ReKoonlytext.png'
 import fotoMini from '../src/images/Reko-mini.png'
 import {Link} from 'react-router-dom';
-
+import {logout} from '../src/services/auth'
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -13,6 +13,7 @@ const MenuItemGroup = Menu.ItemGroup;
 class App extends Component {
   state = {
     current: 'mail',
+    user:{},
   }
   handleClick = (e) => {
     console.log('click ', e);
@@ -20,6 +21,27 @@ class App extends Component {
       current: e.key,
     });
   }
+
+  logout = e => {
+    const { user } = this.state;
+    e.preventDefault();
+    logout(user)
+      .then(r => {
+        console.log("Deslogeado", r);
+        localStorage.clear();
+        //this.props.history.push("/home");
+      })
+
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  componentWillMount(){
+    const user = JSON.parse(localStorage.getItem('loggedUser'))
+    if(user) this.setState({user})
+  }
+  
   render() {
     return (
       <div>
@@ -49,7 +71,7 @@ class App extends Component {
         </Link>
         </Menu.Item>
         <Menu.Item key="logout">
-        <Link to={'/logout'}>
+        <Link to={'/'} onClick={this.logout}>
         <Icon type="logout" />Logout
         </Link>
         </Menu.Item>
@@ -72,7 +94,7 @@ class App extends Component {
             </Menu.Item>
         </SubMenu>
         <Menu.Item key="profile">
-        <Link to={'/profile'}>
+        <Link to={'/profile/' + this.state.user._id }>
         <Icon type="profile" />Mi Perfil
         </Link>
         </Menu.Item>
@@ -99,7 +121,7 @@ class App extends Component {
         </Link>
         </Menu.Item>
         <Menu.Item key="logout">
-        <Link to={'/logout'}>
+        <Link to={'/'} onClick={this.logout}>
         <Icon type="logout" />Logout
         </Link>
         </Menu.Item>

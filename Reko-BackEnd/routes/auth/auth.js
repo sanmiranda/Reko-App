@@ -21,9 +21,9 @@ router.post('/login', (req,res,next) => {
   })(req,res,next)
 })
 
-
+//logout
 router.get('/logout', (req,res,next) => {
-  req.logout()
+  req.logOut()
   res.status(200).json({message: 'Succesfully logged out'})
 })
 
@@ -36,12 +36,8 @@ router.get('/profile', isAuth, (req,res,next) => {
   return res.status(200).json(req.user)
 })
 
-//logout
-router.get('/logout', (req,res,next)=>{
-  req.logout();
-  res.send('Succesfully logged out');
 
-});
+
 
 //update user
 router.put('/user/:id', isAuth, (req,res,next)=>{

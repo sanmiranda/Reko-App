@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Cascader} from 'antd';
-import {uploadFile} from '../../services/uploadfotos'
+import {uploadFile} from '../../services/uploadfotos';
+import { Progress } from 'react-sweet-progress';
+import "react-sweet-progress/lib/style.css";
+import {Link} from 'react-router-dom';
 
 class AddReko extends Component {
   state = {
@@ -90,18 +93,42 @@ class AddReko extends Component {
         value: 'Restaurantes',
         label: 'Restaurantes',    
     }];
-   
+        const user = this.state.user
     return (
-      <div >
-        <form onSubmit={this.handleFormSubmit}>
+      <div className='homestyle2'>
+            <div className='formulario'>
+        <form onSubmit={this.handleFormSubmit} style={{width:"50%", margin:"auto"}}>
+        <h1>Agregar Reko</h1>
+        <div className="field">
+        <label className="label">Subir Foto</label>
+        <div className="control">
           <input name='img' type='file' placeholder= 'Subir Foto' onChange={this.handleImage}/>
+          </div>
+          </div>
+          <div className="field">
+          <label className="label">Titulo</label>
+         <div className="control">
           <input name='name' value={this.state.name} type='text' placeholder= 'nombre' onChange={this.handleChange}/>
+          </div>
+          </div>
+          <div className="field">
+          <label className="label">Elegir Categoria</label>
+         <div className="control">
           <Cascader style={{width:150}} options={categorias} onChange={this.handleSelectChange} placeholder="Please select" />
+          </div>
+          </div>
+          <div className="field">
+          <label className="label">Descripcion</label>
+         <div className="control">
           <input name='description' value={this.state.description} type='text' placeholder='descripción' onChange={this.handleChange}/>
+          </div>
+          </div>
+          {/* <Link to={`/profile/${user._id}`}> */}
           <input type='submit' />
-          {this.state.flagCreado && <p>creado</p>}
+          {/* </Link> */}
+          {this.state.flagCreado &&  <Progress  style={{width:200}} percent={100} status="success" />   }
         </form> 
-    
+          </div>
       </div>
     )
   }

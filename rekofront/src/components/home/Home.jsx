@@ -6,6 +6,7 @@ import fotoSeries from '../../../src/images/series.jpg'
 import fotoPeliculas from '../../../src/images/movies.jpg'
 import fotoRestaurantes from '../../../src/images/comida.jpg'
 import fotoMiniLogo from '../../../src/images/Reko-mini.png'
+import fotoLogo from '../../images/Copia de ReKoonlytext.png'
 import {Link} from 'react-router-dom';
 
 
@@ -22,16 +23,15 @@ export default class Home extends Component {
     render() {
       const size = this.state.size;
     return (
-      <div className='homestyle'>
+      <div className='homestyle2'>
       <div className='homeOne'>
-      <h3>Bienvenido a Reko</h3>
-      <h3>Recomendaciones reales de gente comun</h3>
+      <img className='logomini' alt='minilogo' src={fotoLogo}/>
+      <h1>Recomendaciones reales de gente comun</h1>
       <h4>Unete y comparte tus experiencias y descubrimientos con el mundo.</h4>
-      <img className='logomini' alt='minilogo' src={fotoMiniLogo}/>
       <Button className='homebutton' type="primary"  size={size}>Registrate</Button>
-      <Button className='homebutton' type="primary"  size={size}>Login</Button>
       </div>
        <h2 className='tituloCat' style={{fontSize:50}}>Categorias</h2>
+       <div className='catHome'>
        <div className="gutter-example">
     <Row gutter={16} style={{marginLeft:10}}>
       <Col className="gutter-row" span={6}>
@@ -94,6 +94,7 @@ export default class Home extends Component {
       </Link>
       </Col>
     </Row>
+    </div>
      </div>
       </div>
     )

@@ -44,10 +44,6 @@ export default class Signup extends Component {
     const {signup, handleText, handleImage} = this
     return (
       <div className='homestyle2'>
-      <div className='rekooo'>
-      <h2>Bienvenido a </h2>
-      <img alt='logo'src={fotoLogo} style={{width:300}}/>
-      </div>
       <div className='formulario'>
         <form onSubmit={signup} style={{width:"50%", margin:"auto"}}>
         <h1>Sign Up</h1>

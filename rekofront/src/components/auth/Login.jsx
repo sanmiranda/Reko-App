@@ -30,7 +30,7 @@ class Login extends Component {
             }
             else{
                 localStorage.setItem('loggedUser', JSON.stringify(r))
-                this.props.history.push('/profile')
+                this.props.history.push('/profile/'+r._id)
             }
           
          

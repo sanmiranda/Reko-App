@@ -32,13 +32,13 @@ router.post('/rekos', (req, res, next)=>{
 router.get('/rekos', (req, res, next)=>{
   const {category} = req.query
   if (category){
-    Reko.find({category}).populate("author")
+    Reko.find({category}).populate("author").sort({createAt:-1})
   .then(response=> {
     res.json(response);
   })
   .catch(e=> res.json(e))
   }else{
-    Reko.find().populate("author")
+    Reko.find().populate("author").sort({createdAt:-1})
     .then(response=> {
       res.json(response);
     })
@@ -50,7 +50,7 @@ router.get('/rekos', (req, res, next)=>{
 // get one reko
 
 router.get('/rekos/:id', (req, res, next)=>{
-  Reko.findById(req.params.id)
+  Reko.findById(req.params.id).populate('author')
   .then(response=> {
     res.json(response);
   })
