@@ -18,8 +18,9 @@ class AddReko extends Component {
     flagCreado : false
   }
   
-  handleFormSubmit= (event)=> {
+   handleFormSubmit= (event)=> {
     event.preventDefault();
+    const user = JSON.parse(localStorage.getItem('loggedUser'))
     const img = this.state.img;
     const name = this.state.name;
     const category = this.state.category;
@@ -28,10 +29,12 @@ class AddReko extends Component {
     const author = this.state.user._id;
     let flagCreado = this.state.flagCreado
     axios.post('http://localhost:3000/rekos', {img, name, category, description, rating, author})
-    .then(()=>{
+    .then(r =>{
       //this.props.getData();
-      flagCreado = true
-      this.setState({flagCreado})
+      if(r.status === 201){
+        this.props.history.push(`/profile/${user._id}`)
+      } 
+      //this.setState({flagCreado})
       this.setState({
         img : "",
         name:"",
@@ -39,9 +42,10 @@ class AddReko extends Component {
         description : "",
         rating : "",
         author: "",
+        flagCreado
       })
     })
-    .catch(e => console.log)
+    .catch(e => console.log(e))
 
   }
   
@@ -78,6 +82,9 @@ class AddReko extends Component {
 //    })
 //    .catch(e => console.log(e))
 //  }
+
+
+
   
   render() {
     const categorias = [{
@@ -123,9 +130,11 @@ class AddReko extends Component {
           <input name='description' value={this.state.description} type='text' placeholder='descripción' onChange={this.handleChange}/>
           </div>
           </div>
-          {/* <Link to={`/profile/${user._id}`}> */}
+
           <input type='submit' />
-          {/* </Link> */}
+          
+
+
           {this.state.flagCreado &&  <Progress  style={{width:200}} percent={100} status="success" />   }
         </form> 
           </div>

@@ -92,6 +92,20 @@ class Profile extends React.Component {
       .catch(e =>console.log(e))
   }
 
+  removeBucketReko = (bucketid) => {
+    console.log('hola')
+    const bid = bucketid
+    const {id} = this.props.match.params
+    axios.put('http://localhost:3000/bucket/' + id , {bid})
+    .then(response =>{
+      console.log(response.data.bucketlist)
+      
+      this.getBucketRekos()
+    })
+    .catch(e =>console.log(e))
+}
+  
+
 
 
   render() {
@@ -103,93 +117,94 @@ class Profile extends React.Component {
     const size = this.state.size;
     return (
       <React.Fragment>
-      <div className='profile'>
-
-        <div className='profilecard'>
-         <Card 
-            hoverable
-            // style={{ width: 300, marginLeft: 50}}
-            cover={<img alt="profPic" src={user.img} />}
-           >
-    <Meta
-      title= {user.elUsername}
-      description= {user.email}
-    />
-    <p>{user.name}</p>
-    <p>{user.lastname}</p>
-     
-         </Card>
-         {/* </div> */}
-         <div className='botonesAdd'>
-         <Link to={'/addrekos'}>
-         <Button 
-         className='profilebutton' type="primary" icon="plus" size={size}>Reko
-         </Button>
-         </Link>
-         {/* <Link to={'/addclubs'}>
-         <Button 
-         className='profilebutton' type="primary" icon="plus" size={size}>Club
-         </Button>
-         </Link> */}
-         </div>
-  
-         <div className='misrekosttitle'>
-         <h2 style={{fontSize:40}}>Mis Rekos</h2>
-         </div>
-         <div className='userRekos'>
-       
-       {this.state.authorList.map((reko, index)=>{ 
-       return <Card  //de los rekos del usuario
-              cover={<img alt="rekopic" src={reko.img} />}
-              key={reko._id}>
-
-                 <Link to={`/rekos/${reko._id}`}>
-                  <h2>{reko.name}</h2>
-                </Link>
-                <p>{reko.category}</p>
-              
-      </Card>
-       })}
-      
-      </div>
-         
-         </div>
-         <div className='buckettitle'>
-         <h2 style={{fontSize:40}}>Bucketlist</h2>
-         
-           <List className='bucketlist'//de los rekos en su bucketlist
-            itemLayout="vertical"
-            size="large"
-            dataSource={this.state.bucketlist}
-            renderItem={reko => (
-            <List.Item
-              key={reko._id}
-              extra={<img Width={'150px'} height='100px' alt="logo" src={reko.img} />}
-             >
-           <List.Item.Meta className='bucketlistCard'
-              avatar={
-                <Link to={`/profile/${reko.author ? reko.author._id : reko.author }`} >
-              <Avatar src={reko.author ? reko.author.img : reko.img} />
-              </Link>} 
-          />
-          <Link to={`/rekos/${reko._id}`}>
-             <h2>{reko.name}</h2>
-          </Link>
-             <p> {reko.category} </p>
-             
-
+          <div className='profile'>
+            <div className="portada">
+              <div className='profilecard'>
+              <Card 
+                  hoverable
+                  // style={{ width: 300, marginLeft: 50}}
+                  cover={<img alt="profPic" src={user.img} />}
+                >
+              <Meta
+                title= {user.elUsername}
+                description= {user.email}
+              />
+              <p>{user.name}</p>
+              <p>{user.lastname}</p>
           
-           </List.Item>
-           
-    )}
-  />
-  
-         </div>
-        </div>
+              </Card>
+            </div>
+          </div>
+            {/* </div> */}
+          <div className="flexi">
+          <div className='misrekosttitle'>
+            <div style={{display:"flex"}}>
+              <h2 style={{fontSize:40, color:"white"}}>Mis Rekos</h2> <Link to={'/addrekos'}>
+              <Button 
+              className='profilebutton' style={{backgroundColor:"#d8c361", border:"none", color:"white", marginTop:"20px", marginLeft:"10px"}} icon="plus" size={size}>Reko
+              </Button>
+              </Link>
+              </div>
+            <div className='userRekos'>
+          
+              {this.state.authorList !== null ?
+              this.state.authorList.map((reko, index)=>{ 
+              return <Card style={{width:150, height:"220px", margin:"10px"}} //de los rekos del usuario
+                      cover={<img  alt="rekopic" src={reko.img} />}
+                      key={reko._id}>
 
-
-            
-    
+                        <Link to={`/rekos/${reko._id}`}>
+                          <h2 style={{color:"grey"}}>{reko.name}</h2>
+                        </Link>
+                        <p>{reko.category}</p>
+                      
+                  </Card>
+                }): ''
+                }
+          
+            </div>
+          </div>
+         
+          <div className='buckettitle'>
+            <h2 style={{fontSize:40}}>Bucketlist</h2>
+            {this.state.bucketlist !== null && this.state.bucketlist.length > 0 ? 
+              <List className='bucketlist'//de los rekos en su bucketlist
+                itemLayout="vertical"
+                size="large"
+                dataSource={this.state.bucketlist}
+                renderItem={reko => {
+                  if (!reko) return<p></p>
+                  return (
+                <List.Item
+                  key={reko?reko._id:''}
+                  extra={<img width={'150px'} height='100px' alt="logo" src={reko? reko.img:''} />
+                
+                }
+                >
+              <List.Item.Meta className='bucketlistCard'
+                  avatar={
+                    <Link to={`/profile/${reko.author ? reko.author._id : reko.author }`} >
+                  <Avatar src={reko.author ? reko.author.img : reko.img} />
+                  </Link>} 
+              />
+                <button onClick={()=>this.removeBucketReko(reko._id)}>
+                    - de Bucketlist
+                </button>
+              <Link to={`/rekos/${reko._id}`}>
+                <h2>{reko.name}</h2>
+              </Link>
+                <p> {reko.category} </p>
+              
+              </List.Item>
+              
+        )}}
+      />
+      
+ 
+      : <p>No has agregado nada aùn</p>}
+      
+            </div></div>
+      </div>            
       </React.Fragment>
     );
   }

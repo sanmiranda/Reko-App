@@ -24,79 +24,71 @@ export default class Home extends Component {
       const size = this.state.size;
     return (
       <div className='homestyle2'>
-      <div className='homeOne'>
-      <img className='logomini' alt='minilogo' src={fotoLogo}/>
-      <h1>Recomendaciones reales de gente comun</h1>
-      <h4>Unete y comparte tus experiencias y descubrimientos con el mundo.</h4>
-      <Button className='homebutton' type="primary"  size={size}>Registrate</Button>
-      </div>
-       <h2 className='tituloCat' style={{fontSize:50}}>Categorias</h2>
-       <div className='catHome'>
-       <div className="gutter-example">
-    <Row gutter={16} style={{marginLeft:10}}>
-      <Col className="gutter-row" span={6}>
-        <div className="gutter-box"></div>
-        <Link to={'/rekos?category=Libros'}>
-        <Card
-        hoverable
-        style={{ width: 320 }}
-        cover={
-        <img alt="example" src={fotoLibros} />}
-        >
-      <Meta 
-      className='titulosCard'
-      title="Libros"
-      />
-     
-      </Card>
-      </Link>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div className="gutter-box"></div>
-        <Link to={'/rekos?category=Series'}>
-        <Card
-        hoverable
-        style={{ width: 320 }}
-        cover={<img alt="series" src={fotoSeries} />}
-        >
-      <Meta className='titulosCard'
-      title="Series"
-      />
-      </Card>
-      </Link>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div className="gutter-box"></div>
-        <Link to={'/rekos?category=Peliculas'}>
-        <Card
-        hoverable
-        style={{ width: 320 }}
-        cover={<img alt="example" src={fotoPeliculas} />}
-        >
-         <Meta className='titulosCard'
-      title="Peliculas"
-      />
-      </Card>
-      </Link>
-      </Col>
-      <Col className="gutter-row" span={6}>
-        <div className="gutter-box"></div>
-        <Link to={'/rekos?category=Restaurantes'}>
-        <Card
-        hoverable
-        style={{ width: 320 }}
-        cover={<img alt="example" src={fotoRestaurantes} />}
-        >
-      <Meta className='titulosCard'
-      title="Restaurantes"
-      />
-      </Card>
-      </Link>
-      </Col>
-    </Row>
-    </div>
-     </div>
-      </div>
+        <div className="flex">
+            <div className='homeOne'>
+              <img className='logomini' alt='minilogo' src={fotoLogo}/>
+              <h1>Recomendaciones reales de gente comun</h1>
+              <h4>Unete y comparte tus experiencias y descubrimientos con el mundo.</h4>
+              <br/>
+              <Button className='homebutton' style={{backgroundColor:"#d8c361", border:"none", color:"black"}} size={size}>Registrate</Button>
+            </div>
+        </div>
+        <br/>
+        <div className='catHome'>
+        
+            <Link to={'/rekos?category=Libros'}>
+              <Card className='cardhome'
+                  hoverable
+                  style={{ width:"300px", margin:"0 10px" }}
+                  cover={
+                  <img style={{height:"180px"}} alt="example" src={fotoLibros} />}
+                  >
+                <Meta 
+                className='titulosCard'
+                title="Libros"
+                />
+            </Card>
+          </Link>
+
+          <Link to={'/rekos?category=Series'}>
+            <Card
+            hoverable
+            style={{ width: "300px", margin:"0 10px" }}
+            cover={<img style={{height:"180px"}} alt="series" src={fotoSeries} />}
+            >
+          <Meta className='titulosCard'
+          title="Series"
+          />
+          </Card>
+          </Link>
+        
+            <Link to={'/rekos?category=Peliculas'}>
+            <Card
+            hoverable
+            style={{ width: "300px", margin:"0 10px" }}
+            cover={<img style={{height:"180px"}} alt="example" src={fotoPeliculas} />}
+            >
+            <Meta className='titulosCard'
+          title="Peliculas"
+          />
+          </Card>
+          </Link>
+            <Link to={'/rekos?category=Restaurantes'}>
+            <Card
+            hoverable
+            style={{ width: "300px", margin:"10px 0px !important" }}
+            cover={<img style={{height:"180px"}} alt="example" src={fotoRestaurantes} />}
+            >
+          <Meta className='titulosCard'
+          title="Restaurantes"
+          />
+          </Card>
+          </Link>
+
+        </div>
+        </div>
+
+    
     )
   }
 }

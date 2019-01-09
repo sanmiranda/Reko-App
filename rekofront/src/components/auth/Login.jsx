@@ -40,7 +40,7 @@ class Login extends Component {
     render() {
       const {login, handleText} = this
     return (
-      <div className='homestyle2'>
+      <div className='homestyle3'>
       <div className='formulario'>
       <form onSubmit={login} style={{width:"50%", margin:"auto"}}>
       <h1>Login</h1>

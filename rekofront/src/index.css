@@ -24,12 +24,11 @@ code {
 
 
 .homestyle { 
-  display:flex;
   background-repeat: no-repeat;
   background-position: center;
   opacity: .8;
   background-color: black;
-  height:100%;
+ display: flex;
   
 }
 
@@ -49,37 +48,62 @@ code {
 }
 
 .catHome{
-  justify-content: flex-end
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
+
 .homestyle2 { 
-  display:flex;
+
   background-repeat: no-repeat;
   background-position: center;
   opacity: .8;
   background-color: black;
-  height:88vh;
-  
+
+  min-height: 88vh;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.cardhome{
+  border-radius: 8px;
+}
+
+.homestyle3 { 
+
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .8;
+  background-color: black;
+
+  min-height: 88vh;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 100px;
+
+
 }
 
 
 .homeOne h3  {
   color: white;
+ 
 }
 
 .homeOne h4  {
-  color: white
+  color: white;
+  font-size: 18px ;
 }
 
 .homeOne h1  {
   color: white;
-  font-size: 50px
+  font-size: 50px;
+   margin-bottom: 5px;
 }
 
 
-/* .minilogo{
- 
-} */
 
 .titulosCard{
   text-align: center;
@@ -94,11 +118,18 @@ code {
 
 /* perfil */
 .profile{
-  display:flex;
   background-color: #000000c9;
   height:100%;
+  width: 100%;
   
-  
+}
+.portada{
+  width: 100%;
+  height: 350px;
+  background-image: url("https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-size: cover;
+  background-position: center;
+  margin-top: -20px;
 }
 
 .profilecard{
@@ -118,11 +149,17 @@ code {
   margin-left:300px; 
 
 }
+.flexi{
+  display: flex;
+}
+.misrekosttitle{
+  width: 600px;
+  flex-grow: 2;
+}
 .buckettitle {
   color:white;
-  align-content: flex-end;
-  justify-content: flex-end;
-  margin-left:300px; 
+  width: 400px;
+  flex-grow: 1;
 }
 
 .buckettitle h2{
@@ -144,11 +181,10 @@ code {
 
 
 .userRekos{
-  flex-direction: row;
-  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   padding-top: 20px;
-
-
 }
 
 
@@ -173,12 +209,11 @@ code {
   background-color: white;
   width:500px;
  align-items: center;
- height:400px;
+ height:auto;
  border-color: black;
  color:black;
  flex-wrap:wrap;
 margin-left: 450px;
-margin-top:100px;
 border-radius: 10px;
 
 }
@@ -222,9 +257,9 @@ width:100vw;
 }
 
 .botonesAdd button{
-  background-color: white;
+  background-color: #d8c361;
   color:black;
-  border-color:white;
+  border:none;
   direction:column;
 }
 
@@ -233,4 +268,34 @@ width:100vw;
   background-color: gray !important;
   width: 100px !important;
 
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected > a{
+  color:#d8c361 !important;
+}
+.ant-menu-horizontal > .ant-menu-item > a:hover{
+  color:#d8c361 !important;
+}
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected{
+  border-bottom: 2px solid #d8c361 !important;
+  color:#d8c361 !important;
+}
+.formulario input{
+  width: 70% !important;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 1;
+  border-radius:8px;
+}
+.button{
+  background-color: #d8c361;
+  border: none;
+  color: black;
+  width: 120px;
+  height: 40px;
+  margin: 20px 0;
+  border-radius: 8px
+}
+.ant-list-item{
+  height: auto !important;
 }

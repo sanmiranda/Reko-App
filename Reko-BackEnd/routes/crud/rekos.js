@@ -15,8 +15,8 @@ router.post('/rekos', (req, res, next)=>{
     console.log(response)
     User.findByIdAndUpdate(req.params.id,
       {$push: {rekos: response._id}})
-      .then(res.json(response))
-      .catch(e=>res.json(e))
+      .then(res.status(201).json(response))
+      .catch(e=>res.status(500).json(e))
   })
   // .then(response=>{
   //   Category.findByIdAndUpdate(req.params.id,
@@ -87,7 +87,17 @@ router.delete('/rekos/:id', (req, res , next)=>{
   .catch(e=> res.json(e))
 })
 
-//bucketlist
+//deletRekofrombucketlist
+router.put('/bucket/:id', (req, res , next)=>{
+  const bi = req.body.bid
+  console.log(bi)
+  User.findByIdAndUpdate(req.params.id, {$pull:{bucketlist:bi}}, {new:true})
+  .then(response=>{
+    res.json({message:'Reko removed successfully'})
+  })
+  .catch(e=> res.json(e))
+})
+ //add reko bucketlist
 router.put('/bucket', (req,res,next)=>{
   const userid = req.body.user._id
   const rekoid = req.body.rekoid
@@ -122,5 +132,7 @@ router.get('/rekos/categorias', (req,res,next)=>{
   })
   .catch(e=> res.json(e))
 })
+
+
 
 module.exports = router;

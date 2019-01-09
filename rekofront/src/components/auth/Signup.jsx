@@ -43,9 +43,9 @@ export default class Signup extends Component {
   render() {
     const {signup, handleText, handleImage} = this
     return (
-      <div className='homestyle2'>
+      <div className='homestyle3'>
       <div className='formulario'>
-        <form onSubmit={signup} style={{width:"50%", margin:"auto"}}>
+        <form onSubmit={signup} style={{ margin:"auto", padding:"5% 3%"}}>
         <h1>Sign Up</h1>
         <div className="field">
         <label className="label">Name</label>
