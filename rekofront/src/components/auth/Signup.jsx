@@ -46,36 +46,36 @@ export default class Signup extends Component {
       <div className='homestyle3'>
       <div className='formulario'>
         <form onSubmit={signup} style={{ margin:"auto", padding:"5% 3%"}}>
-        <h1>Sign Up</h1>
+        <h1>Regístrate</h1>
         <div className="field">
-        <label className="label">Name</label>
+        <label className="label">Nombre</label>
         <div className="control">
-            <input onChange={handleText} name="name" className="input" type="text" placeholder="write Name here"/>
+            <input onChange={handleText} name="name" className="input" type="text" placeholder="Nombre"/>
         </div>
         </div>
         <div className="field">
-        <label className="label">Last Name</label>
+        <label className="label">Apellido</label>
         <div className="control">
-            <input onChange={handleText} name="lastname" className="input" type="text" placeholder="write Last Name here"/>
+            <input onChange={handleText} name="lastname" className="input" type="text" placeholder="Apellido"/>
         </div>
         </div>
         <div className="field">
-        <label className="label">Username</label>
+        <label className="label">Nombre de Usuario</label>
         <div className="control">
-            <input onChange={handleText} name="username" className="input" type="text" placeholder="write a Username here"/>
+            <input onChange={handleText} name="username" className="input" type="text" placeholder="Nombre de usuario"/>
         </div>
         </div>
         <div className="field">
-        <label className="label">Email</label>
+        <label className="label">Correo</label>
         <div className="control has-icons-left has-icons-right">
             <input onChange={handleText} name="email" className="input" type="email" placeholder="reko@gmail.com"/>
         </div>
         </div>
 
         <div className="field">
-        <label className="label">Password</label>
+        <label className="label">Contraseña</label>
         <div className="control has-icons-left has-icons-right">
-            <input onChange={handleText} name="password" className="input" type="password"/>
+            <input onChange={handleText} name="password" className="input" type="password" placeholder="Contraseña"/>
         </div>
         </div>
         <div className="field">
@@ -88,7 +88,7 @@ export default class Signup extends Component {
 
         <div className="field is-grouped">
             <div className="control">
-                <button type="submit" className="button is-link">Submit</button>
+                <button type="submit" className="button is-link">Registrar</button>
             </div>
 
         </div>

@@ -89,38 +89,42 @@ getBucketRekos = () => {
 
   
   render() {
-    const {user, flagCreado, bucketlist, reko} = this.state
+    const {user, flagCreado, reko} = this.state
     console.log(this.state)
     return (
       <div className='homestyle2'>
-       <Card style={{margin: 5}}
+      <div className='rekocard' style={{paddingTop:'20px'}}>
+       <Card  classname='cardfondos' style={{margin: 5}}
               cover={
-                <div className='padreImagenCard'>
+                <div className='padreImagenCard cardfondos'>
                  <Meta
               avatar={
-                //id del autor no del user
                 <Link to={`/profile/${reko.author ? reko.author._id : reko.author }`}>
-              <Avatar src={reko.author ? reko.author.img : user.img} />
-              <h3>Autor : {reko.author ? reko.author.username : reko.author}</h3>
+              <Avatar src={reko.author ? reko.author.img : user.img} style={{marginTop:15, marginLeft:30, width:80, height:80}}/>
+              <h3 style={{color:'white', fontSize:'30px'}}>{reko.author ? reko.author.username : reko.author}</h3>
               </Link>}
                 />
-              <img alt="example" src={reko.img} />
+              <img alt="rekopic" style={{width:'350px', height:'400px', marginTop:'-100px'}} src={reko.img} />
               </div>
               }
-              actions={[<Icon type="edit" />, <Icon type="ellipsis" />]}
               key={reko._id}>
+              <div className='cardfondos'>
                <Link to={`/rekos/${reko._id}`}>
-               <h2>{reko.name}</h2>
-               <h3> Categoria : {reko.category}</h3>
-               <h4> Descripcion : {reko.description}</h4>
+               <h2 style={{color:'white', fontSize:'40px'}}>{reko.name}</h2>
+               <h3 style={{color:'white', fontSize:'26px'}}>{reko.category}</h3>
+               <div className='texto'>
+               <h4 style={{color:'white', fontSize:'20px'}}>{reko.description}</h4>
+               </div>
                 </Link>
                 <button  value='+ Bucketlist' onClick={()=>this.addToBucketlist(reko._id)}>
                 + Bucketlist
                 {flagCreado.includes(reko._id) &&  <Progress  style={{width:200}} percent={100} status="success" />   }
                 </button>
+                </div>
                  
                </Card>  
-          })}
+       
+      </div>
       </div>
     
   

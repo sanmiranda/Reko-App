@@ -31,10 +31,10 @@ class ListCategories extends Component {
             return(
               <div key={category._id}>
                 <Link to={`/categories/${category._id}`}/>
-                <h3>Categoria : {category.name}</h3>
-                <h4>Numero de Rekos: {category.numberRekosInCat}</h4>
-                <h3>Sub Categorias : {category.subCategories}</h3>
-                <h2>Numero de Sub Categorias : {category.numberSubCategories}</h2>
+                <h3>Categoría : {category.name}</h3>
+                <h4>Número de Rekos: {category.numberRekosInCat}</h4>
+                <h3>Sub Categorías : {category.subCategories}</h3>
+                <h2>Numero de Sub Categorías : {category.numberSubCategories}</h2>
               </div>  
             )
 

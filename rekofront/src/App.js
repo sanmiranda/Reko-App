@@ -57,12 +57,12 @@ class App extends Component {
         </Menu.Item>
         <Menu.Item key="signup">
         <Link to={'/signup'}>
-          <Icon type="plus" />Signup
+          <Icon type="plus" />Regístrate
         </Link>
         </Menu.Item>
         <Menu.Item key="login">
         <Link to={'/login'}>
-        <Icon type="login" />Login
+        <Icon type="login" />Inicia Sesión
         </Link>
         </Menu.Item>
         <Menu.Item key="rekos">
@@ -72,7 +72,7 @@ class App extends Component {
         </Menu.Item>
         <Menu.Item key="logout">
         <Link to={'/'} onClick={this.logout}>
-        <Icon type="logout" />Logout
+        <Icon type="logout" />Salir
         </Link>
         </Menu.Item>
         <SubMenu title={<span className="submenu-title-wrapper"><Icon type="bars" />Categorias</span>}>
@@ -84,7 +84,7 @@ class App extends Component {
             <Link to={'/rekos?category=Series'}>
             </Link>
             </Menu.Item>
-            <Menu.Item key="setting:3">Peliculas
+            <Menu.Item key="setting:3">Películas
             <Link to={'/rekos?category=Peliculas'}>
             </Link>
             </Menu.Item>
@@ -107,12 +107,12 @@ class App extends Component {
       >
         <Menu.Item key="signup">
           <Link to={'/signup'}>
-          <Icon type="plus" />Signup
+          <Icon type="plus" />Regístrate
           </Link>
         </Menu.Item>
         <Menu.Item key="login">
         <Link to={'/login'}>
-        <Icon type="login" />Login
+        <Icon type="login" />Inicia Sesión
         </Link>
         </Menu.Item>
         <Menu.Item key="rekos">
@@ -122,7 +122,7 @@ class App extends Component {
         </Menu.Item>
         <Menu.Item key="logout">
         <Link to={'/'} onClick={this.logout}>
-        <Icon type="logout" />Logout
+        <Icon type="logout" />Salir
         </Link>
         </Menu.Item>
         <Menu.Item key="logo">

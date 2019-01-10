@@ -113,26 +113,25 @@ class AddReko extends Component {
           </div>
           </div>
           <div className="field">
-          <label className="label">Titulo</label>
+          <label className="label">Título</label>
          <div className="control">
-          <input name='name' value={this.state.name} type='text' placeholder= 'nombre' onChange={this.handleChange}/>
+          <input name='name' value={this.state.name} type='text' placeholder= 'Nombre' onChange={this.handleChange}/>
           </div>
           </div>
           <div className="field">
-          <label className="label">Elegir Categoria</label>
+          <label className="label">Elegir Categoría</label>
          <div className="control">
-          <Cascader style={{width:150}} options={categorias} onChange={this.handleSelectChange} placeholder="Please select" />
+          <Cascader style={{width:150}} options={categorias} onChange={this.handleSelectChange} placeholder="Seleccionar" />
           </div>
           </div>
           <div className="field">
-          <label className="label">Descripcion</label>
+          <label className="label">Descripción</label>
          <div className="control">
-          <input name='description' value={this.state.description} type='text' placeholder=' agregar descripción' onChange={this.handleChange}/>
+          <input name='description' value={this.state.description} type='text' placeholder=' Agregar descripción' onChange={this.handleChange}/>
           </div>
           </div>
           <br/>
-          <input className='botonaddreko' type='submit'placeholder= 'Agregar Reko' />
-          {this.state.flagCreado &&  <Progress  style={{width:200}} percent={100} status="success" />   }
+          <input className='botonaddreko' type='submit' value= 'Agregar Reko' />
         </form> 
           </div>
       </div>

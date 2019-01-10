@@ -27,11 +27,11 @@ export default class Home extends Component {
         <div className="flex">
             <div className='homeOne'>
               <img className='logomini' alt='minilogo' src={fotoLogo}/>
-              <h1>Recomendaciones reales de gente comun</h1>
-              <h4>Unete y comparte tus experiencias y descubrimientos con el mundo.</h4>
+              <h1>Recomendaciones reales de gente común</h1>
+              <h4>Únete y comparte tus experiencias y descubrimientos con el mundo</h4>
               <br/>
               <Link to={'/signup'}>
-              <Button className='homebutton' style={{backgroundColor:"#d8c361", border:"none", color:"black"}} size={size}>Registrate</Button>
+              <Button className='homebutton' style={{backgroundColor:"#d8c361", border:"none", color:"black"}} size={size}>Regístrate</Button>
               </Link>
             </div>
         </div>
@@ -43,12 +43,11 @@ export default class Home extends Component {
                   hoverable
                   style={{ width:"300px", margin:"0 10px" }}
                   cover={
-                  <img style={{height:"180px"}} alt="example" src={fotoLibros} />}
+                  <img style={{height:"180px", width:'100%'}} alt="example" src={fotoLibros} />}
                   >
-                <Meta 
-                className='titulosCard'
-                title="Libros"
-                />
+               
+                <p style={{fontSize:'20px'}}> Libros </p>
+                
             </Card>
           </Link>
 
@@ -56,11 +55,11 @@ export default class Home extends Component {
             <Card
             hoverable
             style={{ width: "300px", margin:"0 10px" }}
-            cover={<img style={{height:"180px"}} alt="series" src={fotoSeries} />}
+            cover={<img style={{height:"180px", width:'100%'}} alt="series" src={fotoSeries} />}
             >
-          <Meta className='titulosCard'
-          title="Series"
-          />
+          
+          <p style={{fontSize:'20px'}}>Series</p>
+         
           </Card>
           </Link>
         
@@ -68,22 +67,22 @@ export default class Home extends Component {
             <Card
             hoverable
             style={{ width: "300px", margin:"0 10px" }}
-            cover={<img style={{height:"180px"}} alt="example" src={fotoPeliculas} />}
+            cover={<img style={{height:"180px", width:'100%'}} alt="example" src={fotoPeliculas} />}
             >
-            <Meta className='titulosCard'
-          title="Peliculas"
-          />
+            
+          <p style={{fontSize:'20px'}}>Películas</p>
+          
           </Card>
           </Link>
             <Link to={'/rekos?category=Restaurantes'}>
             <Card
             hoverable
             style={{ width: "300px", margin:"10px 0px !important" }}
-            cover={<img style={{height:"180px"}} alt="example" src={fotoRestaurantes} />}
+            cover={<img style={{height:"180px", width:'100%'}} alt="example" src={fotoRestaurantes} />}
             >
-          <Meta className='titulosCard'
-          title="Restaurantes"
-          />
+          
+          <p style={{fontSize:'20px'}}>Restaurantes</p>
+         
           </Card>
           </Link>
 

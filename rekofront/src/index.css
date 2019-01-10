@@ -87,6 +87,7 @@ code {
 }
 
 
+
 .homeOne h3  {
   color: white;
  
@@ -94,7 +95,7 @@ code {
 
 .homeOne h4  {
   color: white;
-  font-size: 18px ;
+  font-size: 20px ;
 }
 
 .homeOne h1  {
@@ -125,20 +126,36 @@ code {
 }
 .portada{
   width: 100%;
-  height: 350px;
+  height: 420px;
   background-image: url("https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260");
   background-size: cover;
   background-position: center;
   margin-top: -20px;
 }
+.ant-card-bordered{
+  border:none;
+  border-radius: 8px !important;
+  margin-top:40px;
+}
+.ant-card-hoverable{
+  border-radius: 8px !important;
+  margin-top:40px;
+ 
+}
+.ant-card-body{
+  padding:1px;
+  background-color:black;
+  opacity:.9 !important;
+
+}
 
 .profilecard{
  flex-wrap: wrap;
   height:20%;
- width:20%;
+ width:15%;
  margin-left:20px;
  margin-top:20px;
- border-radius: 10px;
+ border-radius: 8px !important;
 
 }
 
@@ -151,6 +168,7 @@ code {
 }
 .flexi{
   display: flex;
+  margin-left: 20px
 }
 .misrekosttitle{
   width: 600px;
@@ -173,18 +191,34 @@ code {
 
 
 .bucketlistCard {
-  color:white !important
+ color:white !important
 
   
 }
 
+.cardfondos{
+  opacity: .9 !important;
+  background-color: black !important;
+  border-color: #d8c361 !important;
+  border-radius:8px;
+  border-width: 10px;
+}
 
+.ant-card-body{
+  opacity: .8 !important;
+  background-color: black !important;
+  border-color: #d8c361 !important;
+  border-width: 10px;
+  color:white;
+  
+}
 
 .userRekos{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding-top: 20px;
+  justify-content: space-around
 }
 
 
@@ -264,13 +298,25 @@ width:100vw;
 }
 
 .botonaddreko{
-  background-color: #d8c361;
-  border: none;
-  color: black;
-  width: 120px;
-  height: 40px;
-  margin: 20px 0;
-  border-radius: 8px
+  background-color: #d8c361 !important;
+  border: none !important;
+  color: black !important;
+  width: 120px !important;
+  height: 40px !important;
+  margin: 20px 0 !important;
+  border-radius: 8px !important;
+  opacity: .8 !important;
+}
+
+.botonaddreko2{
+  background-color: #d8c361 !important;
+  border: none !important;
+  color: black !important;
+  width: 120px !important;
+  height: 30px !important;
+  margin: 20px 0 !important;
+  border-radius: 8px !important;
+  opacity: .8 !important;
 }
 
 .homestyle2 progress{
@@ -309,4 +355,23 @@ width:100vw;
 .ant-list-item{
   height: auto !important;
 }
+
+.profilebutton{
+  background-color: #d8c361;
+  border: none;
+  color: black;
+  width: 120px;
+  height: 40px;
+  margin: 20px 0;
+  border-radius: 8px
+}
+
+.fotoperfil{
+  width:100% !important
+}
+
+/* .ant-card-cover img{
+  height:150px;
+  width: 150px
+} */
 

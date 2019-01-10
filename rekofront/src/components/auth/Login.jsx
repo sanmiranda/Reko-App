@@ -43,26 +43,26 @@ class Login extends Component {
       <div className='homestyle3'>
       <div className='formulario'>
       <form onSubmit={login} style={{ margin:"auto", padding:"5% 3%"}}>
-      <h1>Login</h1>
+      <h1>Iniciar Sesíon</h1>
 
       <div className="field">
-      <label className="label">Email</label>
+      <label className="label">Correo</label>
       <div className="control has-icons-left has-icons-right">
-          <input onChange={e=> handleText(e)} className="input" name="email" type="email" placeholder="darthVader@gmail.com"/>
+          <input onChange={e=> handleText(e)} className="input" name="email" type="email" placeholder="reko@gmail.com"/>
       </div>
       </div>
 
       <div className="field">
-      <label className="label">Password</label>
+      <label className="label">Contraseña</label>
       <div className="control has-icons-left has-icons-right">
-          <input onChange={e=> handleText(e)} className="input" name="password" type="password"/>
+          <input onChange={e=> handleText(e)} className="input" name="password" placeholder='Contraseña' type="Contraseña"/>
       </div>
       </div>
 
 
       <div className="field is-grouped">
           <div className="control">
-              <button type="submit" className="button is-link">Submit</button>
+              <button type="submit" className="button is-link">Iniciar</button>
           </div>
 
       </div>

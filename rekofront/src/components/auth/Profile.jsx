@@ -119,18 +119,17 @@ class Profile extends React.Component {
       <React.Fragment>
           <div className='profile'>
             <div className="portada">
-              <div className='profilecard'>
-              <Card 
+              <div className='profilecard' style={{borderRadius:8}}>
+              <br></br>
+              <Card style={{padding:'0px !important'}}
                   hoverable
-                  // style={{ width: 300, marginLeft: 50}}
-                  cover={<img alt="profPic" src={user.img} />}
+                  cover={<img className='fotoperfil' alt="profPic" src={user.img} />}
                 >
-              <Meta
-                title= {user.elUsername}
-                description= {user.email}
-              />
-              <p>{user.name}</p>
-              <p>{user.lastname}</p>
+                <p style={{fontSize:18}}> {user.username}</p>
+                <p> {user.email} </p>
+             
+              <p>{user.name} {user.lastname}</p>
+             
           
               </Card>
             </div>
@@ -139,9 +138,9 @@ class Profile extends React.Component {
           <div className="flexi">
           <div className='misrekosttitle'>
             <div style={{display:"flex"}}>
-              <h2 style={{fontSize:40, color:"white"}}>Mis Rekos</h2> <Link to={'/addrekos'}>
+              <h2 style={{fontSize:40, color:"white", marginRight:'15px'}}>Mis Rekos</h2> <Link to={'/addrekos'}>
               <Button 
-              className='profilebutton' style={{backgroundColor:"#d8c361", border:"none", color:"black", marginTop:"20px", marginLeft:"10px", width:'100px'}} icon="plus" size={size}>Reko
+              className='botonaddreko'> Agregar Reko
               </Button>
               </Link>
               </div>
@@ -149,14 +148,16 @@ class Profile extends React.Component {
           
               {this.state.authorList !== null ?
               this.state.authorList.map((reko, index)=>{ 
-              return <Card style={{width:150, height:"220px", margin:"10px"}} //de los rekos del usuario
-                      cover={<img  alt="rekopic" src={reko.img} />}
+              return <Card style={{ margin:"30px", marginBottom:'30px', width:'200px'}} //de los rekos del usuario
+                      cover={
+                      <img style={{width:"100%",height:"100px"}} alt="rekopic" src={reko.img} />}
+
                       key={reko._id}>
 
-                        <Link to={`/rekos/${reko._id}`}>
+                         <Link to={`/rekos/${reko._id}`}>
                           <h2 style={{color:"grey"}}>{reko.name}</h2>
                         </Link>
-                        <p>{reko.category}</p>
+                        {/* <p >{reko.category}</p>  */}
                       
                   </Card>
                 }): ''
@@ -177,23 +178,23 @@ class Profile extends React.Component {
                   return (
                 <List.Item
                   key={reko?reko._id:''}
-                  extra={<img width={'150px'} height='100px' alt="logo" src={reko? reko.img:''} />
+                  extra={<img width={'150px'} borderRadius={'8px'} height='170px' alt="logo" src={reko? reko.img:''} />
                 
                 }
                 >
               <List.Item.Meta className='bucketlistCard'
                   avatar={
                     <Link to={`/profile/${reko.author ? reko.author._id : reko.author }`} >
-                  <Avatar src={reko.author ? reko.author.img : reko.img} />
+                  <Avatar src={reko.author ? reko.author.img : reko.img} style={{width:80, height:80}} />
                   </Link>} 
               />
-                <button onClick={()=>this.removeBucketReko(reko._id)} className='button' style={{backgroundColor:"#d8c361"}}>
-                    - de Bucketlist
+                <button onClick={()=>this.removeBucketReko(reko._id)} className='botonaddreko2' style={{backgroundColor:"#d8c361"}}>
+                    Eliminar
                 </button>
               <Link to={`/rekos/${reko._id}`}>
                 <h2>{reko.name}</h2>
               </Link>
-                <p> {reko.category} </p>
+                <p style={{fontSize:'14px', color:'white'}}> {reko.category} </p>
               
               </List.Item>
               
