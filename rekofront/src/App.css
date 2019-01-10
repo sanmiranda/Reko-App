@@ -30,3 +30,365 @@
     transform: rotate(360deg);
   }
 }
+
+/* home */
+
+.tituloCat {
+  text-align: center;
+  color:white;
+  width:100px;
+  height:100px;
+}
+
+
+.homestyle { 
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .8;
+  background-color: black;
+ display: flex;
+  
+}
+
+.homestyle2 button {
+  background-color: white;
+  color:black;
+  border-color:white;
+  direction:column;
+  justify-content: space-between;
+  flex-wrap:wrap;
+
+}
+
+.logomini{
+  align-items: flex-end;
+  width:600px;
+}
+
+.catHome{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.homestyle2 { 
+
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .8;
+  background-color: black;
+
+  min-height: 88vh;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.cardhome{
+  border-radius: 8px;
+}
+
+.homestyle3 { 
+
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .8;
+  background-color: black;
+
+  min-height: 88vh;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 100px;
+  display: flex;
+justify-content: center
+
+
+}
+
+
+
+.homeOne h3  {
+  color: white;
+ 
+}
+
+.homeOne h4  {
+  color: white;
+  font-size: 20px ;
+}
+
+.homeOne h1  {
+  color: white;
+  font-size: 50px;
+   margin-bottom: 5px;
+}
+
+
+
+.titulosCard{
+  text-align: center;
+  font-size: 40px;
+}
+
+.homebutton{
+  display: flex;
+  width:200px;
+  height:200px;
+}
+
+/* perfil */
+.profile{
+  background-color: #000000c9;
+  height:100%;
+  width: 100%;
+  
+}
+.portada{
+  width: 100%;
+  height: 420px;
+  background-image: url("https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-size: cover;
+  background-position: center;
+  margin-top: -20px;
+}
+.ant-card-bordered{
+  border:none;
+  border-radius: 8px !important;
+  margin-top:40px;
+}
+.ant-card-hoverable{
+  border-radius: 8px !important;
+  margin-top:40px;
+ 
+}
+.ant-card-body{
+  padding:1px;
+  background-color:black;
+  opacity:.9 !important;
+
+}
+
+.profilecard{
+ flex-wrap: wrap;
+  height:20%;
+ width:15%;
+ margin-left:20px;
+ margin-top:20px;
+ border-radius: 8px !important;
+
+}
+
+.bucketlist{
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 20vw;
+  margin-left:300px; 
+
+}
+.flexi{
+  display: flex;
+  margin-left: 20px
+}
+.misrekosttitle{
+  width: 600px;
+  flex-grow: 2;
+}
+.buckettitle {
+  color:white;
+  width: 400px;
+  flex-grow: 1;
+}
+
+.buckettitle h2{
+  color:white;
+}
+
+.misrekosttitle h2{
+  color:white;
+
+}
+
+
+.bucketlistCard {
+ color:white !important
+
+  
+}
+
+.cardfondos{
+  opacity: .9 !important;
+  background-color: black !important;
+  border-color: #d8c361 !important;
+  border-radius:8px;
+  border-width: 10px;
+}
+
+.ant-card-body{
+  opacity: .8 !important;
+  background-color: black !important;
+  border-color: #d8c361 !important;
+  border-width: 10px;
+  color:white;
+  
+}
+
+.userRekos{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 20px;
+  justify-content: space-around;
+}
+
+
+.botonesRating{
+  display:inline;
+}
+
+.ant-list-item{
+  width:30vw;
+  height:15vh;
+  
+}
+
+
+.footer{
+  display:flex;
+ align-content: space-between
+}
+
+
+.formulario{
+  background-color: white;
+  width:500px;
+ align-items: center;
+ height:auto;
+ border-color: black;
+ color:black;
+ flex-wrap:wrap;
+
+border-radius: 10px;
+
+}
+
+
+.rekocard{
+  display:flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  opacity:.9;
+  
+}
+
+.padreImagenCard{
+overflow: hidden;
+width:100vw;
+
+}
+
+.padreImagenCard > * {
+  margin: 5vw;
+  width: 25vw;
+  margin-bottom: 20px;
+  margin-top:20px
+}
+
+.padreImagenCard img {
+  width: 300px;
+  height: 300px;
+}
+
+.rekocard button {
+  background-color: black;
+  opacity: .9;
+  color:white;
+  border-color: black;
+  border-radius: 8px;
+}
+
+.botonesAdd button{
+  background-color: #d8c361;
+  color:black;
+  border:none;
+  direction:column;
+}
+
+.botonaddreko{
+  background-color: #d8c361 !important;
+  border: none !important;
+  color: black !important;
+  width: 120px !important;
+  height: 40px !important;
+  margin: 20px 0 !important;
+  border-radius: 8px !important;
+  opacity: .8 !important;
+}
+
+.botonaddreko2{
+  background-color: #d8c361 !important;
+  border: none !important;
+  color: black !important;
+  width: 120px !important;
+  height: 30px !important;
+  margin: 20px 0 !important;
+  border-radius: 8px !important;
+  opacity: .8 !important;
+}
+
+.homestyle2 progress{
+  color: gray !important;
+  background-color: gray !important;
+  width: 100px !important;
+
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected > a{
+  color:#d8c361 !important;
+}
+.ant-menu-horizontal > .ant-menu-item > a:hover{
+  color:#d8c361 !important;
+}
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected{
+  border-bottom: 2px solid #d8c361 !important;
+  color:#d8c361 !important;
+}
+.formulario input{
+  width: 70% !important;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 1;
+  border-radius:8px;
+}
+.button{
+  background-color: #d8c361;
+  border: none;
+  color: black;
+  width: 120px;
+  height: 40px;
+  margin: 20px 0;
+  border-radius: 8px
+}
+.ant-list-item{
+  height: auto !important;
+}
+
+.profilebutton{
+  background-color: #d8c361;
+  border: none;
+  color: black;
+  width: 120px;
+  height: 40px;
+  margin: 20px 0;
+  border-radius: 8px
+}
+
+.fotoperfil{
+  width:100% !important
+}
+
+
+

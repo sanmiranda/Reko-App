@@ -1,7 +1,7 @@
 {
-  "main.css": "/static/css/main.2391b7dc.chunk.css",
-  "main.js": "/static/js/main.8bbf2ba2.chunk.js",
-  "main.js.map": "/static/js/main.8bbf2ba2.chunk.js.map",
+  "main.css": "/static/css/main.41fc1565.chunk.css",
+  "main.js": "/static/js/main.a79c5f16.chunk.js",
+  "main.js.map": "/static/js/main.a79c5f16.chunk.js.map",
   "static/css/1.bfe7e54d.chunk.css": "/static/css/1.bfe7e54d.chunk.css",
   "static/js/1.759f6b27.chunk.js": "/static/js/1.759f6b27.chunk.js",
   "static/js/1.759f6b27.chunk.js.map": "/static/js/1.759f6b27.chunk.js.map",
@@ -13,9 +13,9 @@
   "static/media/comida.jpg": "/static/media/comida.bc39cdd4.jpg",
   "static/media/Reko-mini.png": "/static/media/Reko-mini.6b0e9f90.png",
   "static/media/Libros.jpg": "/static/media/Libros.d543bcd8.jpg",
-  "static/css/main.2391b7dc.chunk.css.map": "/static/css/main.2391b7dc.chunk.css.map",
+  "static/css/main.41fc1565.chunk.css.map": "/static/css/main.41fc1565.chunk.css.map",
   "static/css/1.bfe7e54d.chunk.css.map": "/static/css/1.bfe7e54d.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.4c987bff634992cb1891400756267144.js": "/precache-manifest.4c987bff634992cb1891400756267144.js",
+  "precache-manifest.e859377db2c7f382c9a517902be6afd8.js": "/precache-manifest.e859377db2c7f382c9a517902be6afd8.js",
   "service-worker.js": "/service-worker.js"
 }
