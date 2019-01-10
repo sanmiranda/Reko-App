@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom';
 import {logout} from '../src/services/auth'
 
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class App extends Component {
   state = {
@@ -29,7 +28,6 @@ class App extends Component {
       .then(r => {
         console.log("Deslogeado", r);
         localStorage.clear();
-        //this.props.history.push("/home");
       })
 
       .catch(e => {

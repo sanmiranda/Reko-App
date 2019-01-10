@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {
- Card, Icon, Avatar, List, Button,Row,Col 
+ Card, Icon, Avatar, List, Button 
 } from 'antd';
 import axios from 'axios'
 
@@ -65,7 +65,7 @@ class Profile extends React.Component {
 
   getUser=()=>{
     const {id} = this.props.match.params
-    axios.get('http://localhost:3000/users/' + id )
+    axios.get('https://rekosmb.herokuapp.com/users/' + id )
       .then(response =>{
         console.log(response)
         this.setState({user: response.data})
@@ -75,7 +75,7 @@ class Profile extends React.Component {
 
   getAuthorRekos = (author) => {
     const {id} = this.props.match.params
-    axios.get('http://localhost:3000/authorrekos/' + id )
+    axios.get('https://rekosmb.herokuapp.com/authorrekos/' + id )
       .then(response =>{
         this.setState({authorList: response.data})
       })
@@ -84,7 +84,7 @@ class Profile extends React.Component {
 
   getBucketRekos = (author) => {
     const {id} = this.props.match.params
-    axios.get('http://localhost:3000/bucketrekos/' + id )
+    axios.get('https://rekosmb.herokuapp.com/bucketrekos/' + id )
       .then(response =>{
         console.log(response.data.bucketlist)
         this.setState({bucketlist: response.data.bucketlist})
@@ -96,7 +96,7 @@ class Profile extends React.Component {
     console.log('hola')
     const bid = bucketid
     const {id} = this.props.match.params
-    axios.put('http://localhost:3000/bucket/' + id , {bid})
+    axios.put('https://rekosmb.herokuapp.com/bucket/' + id , {bid})
     .then(response =>{
       console.log(response.data.bucketlist)
       

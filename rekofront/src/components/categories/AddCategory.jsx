@@ -16,7 +16,7 @@ class AddCategory extends Component {
     const numberRekosInCat = this.state.numberRekosInCat;
     const subCategory = this.state.subCategory;
     const numberSubCategories = this.state.numberSubCategories;
-    axios.post('http://localhost:3000/categories', {name, numberRekosInCat, subCategory, numberSubCategories})
+    axios.post('https://rekosmb.herokuapp.com/categories', {name, numberRekosInCat, subCategory, numberSubCategories})
     .then(()=>{
       this.props.getData();
       this.setState({

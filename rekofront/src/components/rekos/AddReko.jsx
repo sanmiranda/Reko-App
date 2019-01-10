@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Cascader} from 'antd';
 import {uploadFile} from '../../services/uploadfotos';
-import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
-import {Link} from 'react-router-dom';
 
 class AddReko extends Component {
   state = {
@@ -28,7 +26,7 @@ class AddReko extends Component {
     const rating = this.state.rating;
     const author = this.state.user._id;
     let flagCreado = this.state.flagCreado
-    axios.post('http://localhost:3000/rekos', {img, name, category, description, rating, author})
+    axios.post('https://rekosmb.herokuapp.com/rekos', {img, name, category, description, rating, author})
     .then(r =>{
       //this.props.getData();
       if(r.status === 201){
@@ -75,14 +73,6 @@ class AddReko extends Component {
     this.setState({user})
   }
 }
-// addauthor = () => {
-//   axios.put('http://localhost:3000/rekos/:id')
-//    .then(response =>{
-//      this.setState({$push:{author: this.user.id}})
-//    })
-//    .catch(e => console.log(e))
-//  }
-
 
 
   

@@ -11,7 +11,7 @@ class ClubList extends Component {
   }
 
   getClubs = () => {
-    axios.get('http://localhost:3000/clubs')
+    axios.get('https://rekosmb.herokuapp.com/clubs')
       .then(response => {
         this.setState({list: response.data})
       })
@@ -23,7 +23,7 @@ class ClubList extends Component {
     }
 
      addmember = () => {
-       axios.put('http://localhost:3000/clubs/:id')
+       axios.put('https://rekosmb.herokuapp.com/clubs/:id')
         .then(response =>{
           this.setState({$push:{members: response.data}})
         })

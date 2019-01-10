@@ -16,7 +16,7 @@ class AddClub extends Component {
     const description = this.state.description;
     const members = this.state.members;
     const category = this.state.category;
-    axios.post('http://localhost:3000/clubs', {name, description, members, category})
+    axios.post('https://rekosmb.herokuapp.com/clubs', {name, description, members, category})
     .then(()=>{
       this.props.getData();
       this.setState({

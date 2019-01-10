@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-// import {Link} from 'react-router-dom'
 import {signup} from '../../services/auth'
 import {uploadFile} from '../../services/uploadfotos'
-import fotoLogo from '../../images/Copia de ReKoonlytext.png'
 
 
 

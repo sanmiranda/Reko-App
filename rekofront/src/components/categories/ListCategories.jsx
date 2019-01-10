@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
-import AddCategory from './AddCategory';
 
 
 class ListCategories extends Component {
@@ -12,7 +11,7 @@ class ListCategories extends Component {
   }
 
   getCategories = () => {
-    axios.get('http://localhost:3000/categories')
+    axios.get('https://rekosmb.herokuapp.com/categories')
       .then(response =>{
         this.setState({list: response.data})
       })

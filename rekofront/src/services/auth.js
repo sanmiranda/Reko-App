@@ -1,5 +1,5 @@
 import axios from 'axios'
-const host = 'http://localhost:3000/auth'
+const host = 'https://rekosmb.herokuapp.com/auth'
 
 //signup
 export const signup = (user) => {

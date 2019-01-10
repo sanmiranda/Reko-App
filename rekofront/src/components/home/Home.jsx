@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
-import { Row, Col, Card, Button } from 'antd';
+import {  Card, Button } from 'antd';
 import fotoLibros from '../../../src/images/Libros.jpg'
 import fotoSeries from '../../../src/images/series.jpg'
 import fotoPeliculas from '../../../src/images/movies.jpg'
 import fotoRestaurantes from '../../../src/images/comida.jpg'
-import fotoMiniLogo from '../../../src/images/Reko-mini.png'
 import fotoLogo from '../../images/Copia de ReKoonlytext.png'
 import {Link} from 'react-router-dom';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {
-  Card, Icon, Avatar, List, Button,Row,Col 
+  Card, 
  } from 'antd';
 
 
@@ -13,7 +13,7 @@ class UserList extends Component {
   }
 
   getUsers = () => {
-    axios.get('http://localhost:3000/users')
+    axios.get('https://rekosmb.herokuapp.com/users')
       .then(response => {
         this.setState({list: response.data})
       })
@@ -37,7 +37,6 @@ class UserList extends Component {
                   <h4>Nombre : {user.name}</h4>
                   <h3>Apellido : {user.lastname}</h3>
                   <h2>Email : {user.email}</h2>
-                  {/* <input type='submit' value='Track' onClick={()=>this.addmember(club._id)}/> */}
                 
                 </Card>
               )

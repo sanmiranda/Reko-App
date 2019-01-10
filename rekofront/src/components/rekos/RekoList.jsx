@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom';
-import {Card, Icon, Avatar} from 'antd';
+import {Card, Avatar} from 'antd';
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 
@@ -22,8 +22,8 @@ class RekoList extends Component {
   getRekos = () => {
     const {search} = this.props.location
     let url
-    if(search) url = 'http://localhost:3000/rekos'+search
-    else url = 'http://localhost:3000/rekos'
+    if(search) url = 'https://rekosmb.herokuapp.com/rekos'+search
+    else url = 'https://rekosmb.herokuapp.com/rekos'
     axios.get(url)
       .then(response =>{
         this.setState({list: response.data})
@@ -34,7 +34,7 @@ class RekoList extends Component {
 
   getBucketRekos = () => {
     const user = JSON.parse(localStorage.getItem('loggedUser'))
-    axios.get('http://localhost:3000/bucketrekos/' + user._id )
+    axios.get('https://rekosmb.herokuapp.com/bucketrekos/' + user._id )
       .then(response =>{
         
         const {flagCreado} = this.state
@@ -65,7 +65,7 @@ class RekoList extends Component {
       flagCreado.push(rekoid)
       this.setState({flagCreado})
       console.log(flagCreado)
-      axios.put('http://localhost:3000/bucket', bucket)
+      axios.put('https://rekosmb.herokuapp.com/bucket', bucket)
        .then(response =>{
         //flagCreado = true
         
