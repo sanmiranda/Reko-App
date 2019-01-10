@@ -14,7 +14,7 @@ const cors         = require('cors')
 const MongoStore   = require('connect-mongo')(session)
 
 mongoose
-  .connect('mongodb://localhost/Reko', {useNewUrlParser: true})
+  .connect('mongodb://santiago:ironhack2018@ds115244.mlab.com:15244/area51', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
