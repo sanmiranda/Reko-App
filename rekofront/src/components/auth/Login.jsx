@@ -54,7 +54,7 @@ class Login extends Component {
       <div className="field">
       <label className="label">Contraseña</label>
       <div className="control has-icons-left has-icons-right">
-          <input onChange={e=> handleText(e)} className="input" name="password" placeholder='Contraseña' type="Contraseña"/>
+          <input onChange={e=> handleText(e)} className="input" name="password" placeholder='Contraseña' type="password"/>
       </div>
       </div>
 
